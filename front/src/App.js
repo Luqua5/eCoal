@@ -1,23 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 function App() {
+  //make a get request to localhost:8000/test with axios
+  
+  async function getArticles() {  // The function is asynchronous
+    const articles = (await axios.get('http://localhost:8000/api/test')).data
+    return articles;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {{getArticles}}
     </div>
   );
 }
