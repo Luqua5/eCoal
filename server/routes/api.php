@@ -24,13 +24,13 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/test', [AuthController::class, 'test']);
 Route::get('/article', [ArticleController::class,'article']);
+Route::get('/article/{id}', [ArticleController::class,'articleById']);                 
 
 
 
 Route::group([
     'middleware' => 'auth:sanctum',
 ], function () {
-    Route::get('/article/{id}', [ArticleController::class,'articleById']);                 
     Route::get('/logout',  [AuthController::class, 'logout']);
 
     Route::get('/user',  function (Request $request) {
