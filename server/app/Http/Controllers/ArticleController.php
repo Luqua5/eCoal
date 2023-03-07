@@ -20,4 +20,6 @@ class ArticleController extends Controller
         return response()->json($theArticle);
         
     }
+
+    
 }
