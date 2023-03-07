@@ -18,8 +18,11 @@ class ArticleController extends Controller
         $article = new article();
         $theArticle = $article->articleOnId($id)->toJson();
         return response()->json($theArticle);
-        
     }
 
-    
+    public function deleteArticle($id){
+        $article = new article();
+        $article->deleteArticle($id);
+        return response()->json(['message' => 'Article deleted successfully']);
+    }
 }

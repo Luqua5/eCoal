@@ -24,4 +24,9 @@ class Article extends Model
     {
         return $this->all();
     }
+
+    public function deleteArticle($id)
+    {
+        return $this->where('id', $id)->delete();
+    }
 }
