@@ -1,0 +1,58 @@
+// import "./Home.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+// import { Route, Link, Routes, useNavigate } from "react-router-dom";
+
+export default function Article() {
+    //make a get request to localhost:8000/test with axios
+
+    const [data, setData] = useState(undefined);
+    const [tags, setTags] = useState([]);
+
+
+    // useEffect(() => {
+    //     getArticles();
+    // }, []);
+
+    // async function getArticles() {  // The function is asynchronous
+    //     const articles = (await axios.get('http://localhost:8000/api/test')).data
+    //     console.log(articles)
+    //     return articles;
+    // }
+    return (
+        <>
+
+            <div>
+                {/* HoME
+            {getArticles()} */}
+
+                <Row xs={1} md={2} className="g-4">
+                    {Array.from({ length: 4 }).map((_, idx) => (
+                        <Col>
+                            <Card>
+                                <Card.Img variant="top" src="holder.js/100px160" />
+                                <Card.Body>
+                                    <Card.Title>Card title</Card.Title>
+                                    <Card.Text>
+                                        This is a longer card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit
+                                        longer.
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
+
+
+            </div>
+        </>
+    );
+}

@@ -4,6 +4,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Route, Link, Routes } from "react-router-dom";
 import Home from "./Home/Home";
+import Article from "./article/Article";
 
 
 
@@ -28,7 +29,10 @@ function App() {
     <>
 
       <Routes>
-        <Route exact={true} path="/" element={<Home />} />
+        <Route exact={true} path="/" element={<Home/>} />
+      </Routes>
+      <Routes>
+        <Route exact={true} path="/article" element={<Article/>} />
       </Routes>
 
       <footer className="footer"></footer>
