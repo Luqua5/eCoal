@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { Route, Link, Routes } from "react-router-dom";
+import Home from "./Home/Home";
+
 
 
 
@@ -15,17 +18,21 @@ function App() {
 //     filter: []
 // }
   
-  async function getArticles() {  // The function is asynchronous
-    const articles = (await axios.get('http://localhost:8000/api/test')).data
-    console.log(articles)
-    return articles;
-  }
+  // async function getArticles() {  // The function is asynchronous
+  //   const articles = (await axios.get('http://localhost:8000/api/test')).data
+  //   console.log(articles)
+  //   return articles;
+  // }
 
   return (
-    <div className="App">
-      
-      {getArticles()}
-    </div>
+    <>
+
+      <Routes>
+        <Route exact={true} path="/" element={<Home />} />
+      </Routes>
+
+      <footer className="footer"></footer>
+    </>
   );
 }
 
