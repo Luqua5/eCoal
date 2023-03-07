@@ -23,5 +23,6 @@ class Article extends Model
     {
         return $this->where('id', $id)->delete();
     }
-
+    
+    
 }
