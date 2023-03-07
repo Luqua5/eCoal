@@ -19,4 +19,9 @@ class Article extends Model
     {
         return $this->where('id', $id)->get();
     }
+
+    public function allArticles()
+    {
+        return $this->all();
+    }
 }

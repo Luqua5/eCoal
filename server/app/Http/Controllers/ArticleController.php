@@ -9,8 +9,9 @@ class ArticleController extends Controller
 {
 
     public function article(){
-
-        return response()->json(["message" => "Article"]);
+        $article = new article();
+        $allArticles = $article->allArticles()->toJson();
+        return response()->json($allArticles);
     }
 
     public function articleById($id){
