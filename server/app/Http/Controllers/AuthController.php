@@ -63,13 +63,7 @@ class AuthController extends Controller
         return response()->json(["message" => "Test."]);
     }
 
-    public function article(){
-        return response()->json(["message" => "Article."]);
-    }
-
-    public function articleById($id){
-        return response()->json(["message" => "$id"]);
-    }
+  
 
 
     

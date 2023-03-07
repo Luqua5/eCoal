@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/test', [AuthController::class, 'test']);
-Route::get('/article', [AuthController::class,'article']);
+Route::get('/article', [ArticleController::class,'article']);
 
 
 
@@ -34,7 +35,7 @@ Route::group([
     Route::get('/user',  function (Request $request) {
                                 return $request->user();
                          });
-    Route::get('/article/{id}', [AuthController::class,'articleById']);                 
+    Route::get('/article/{id}', [ArticleController::class,'articleById']);                 
 });
 
 
