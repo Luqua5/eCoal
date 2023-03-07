@@ -24,6 +24,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/test', [AuthController::class, 'test']);
 Route::get('/article', [ArticleController::class,'article']);
+Route::get('/article/{id}', [ArticleController::class,'articleById']);                 
 
 
 
@@ -35,7 +36,6 @@ Route::group([
     Route::get('/user',  function (Request $request) {
                                 return $request->user();
                          });
-    Route::get('/article/{id}', [ArticleController::class,'articleById']);                 
 });
 
 
