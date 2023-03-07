@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -61,4 +62,15 @@ class AuthController extends Controller
     public function test(){
         return response()->json(["message" => "Test."]);
     }
+
+    public function article(){
+        return response()->json(["message" => "Article."]);
+    }
+
+    public function articleById($id){
+        return response()->json(["message" => "$id"]);
+    }
+
+
+    
 }

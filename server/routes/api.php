@@ -22,6 +22,9 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/test', [AuthController::class, 'test']);
+Route::get('/article', [AuthController::class,'article']);
+
+
 
 Route::group([
     'middleware' => 'auth:sanctum',
@@ -31,7 +34,7 @@ Route::group([
     Route::get('/user',  function (Request $request) {
                                 return $request->user();
                          });
-    
+    Route::get('/article/{id}', [AuthController::class,'articleById']);                 
 });
 
 
