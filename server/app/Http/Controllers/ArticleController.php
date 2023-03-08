@@ -18,8 +18,33 @@ class ArticleController extends Controller
         $article = new article();
         $theArticle = $article->articleOnId($id)->toJson();
         return response()->json($theArticle);
-        
     }
 
-    
+    public function deleteArticle($id){
+        $article = new article();
+        $article->deleteArticle($id);
+        return response()->json(['message' => 'Article deleted successfully']);
+    }
+
+    public function addArticle(Request $request){
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:50',
+            'content' => 'required|text',
+            'thumbnailURL' => 'required|string',
+            'leadStory' => 'required|integer',
+        ]);
+        
+        $article = new article();
+
+        $article->title = $validatedData['title'];
+        $article->content = $validatedData['content'];
+        $article->thumbnailURL = $validatedData['thumbnailURL'];
+        $article->leadStory = $validatedData['leadStory'];
+
+        $article->save();
+
+        
+
+        return response()->json(['message' => 'Article added successfully']);
+    }
 }
