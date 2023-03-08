@@ -5,13 +5,15 @@ import React, { useState } from 'react';
 import { Route, Link, Routes } from "react-router-dom";
 import Home from "./Home/Home";
 import Article from "./article/Article";
+import ArticleDetail from "./article/ArticleDetail";
+import Login from "./Login";
 
-
+//import use cookie
 
 
 function App() {
   //make a get request to localhost:8000/test with axios
-
+//const cookie use cookie
   const [nb, setNb ] = useState(0)  
 
   
@@ -30,9 +32,9 @@ function App() {
 
       <Routes>
         <Route exact={true} path="/" element={<Home/>} />
-      </Routes>
-      <Routes>
-        <Route exact={true} path="/article" element={<Article/>} />
+        <Route exact={true} path="/ArticleDetail/:id" element={<ArticleDetail/>} />
+        <Route exact={true} path="/Article" element={<Article/>} />
+        <Route exact={true} path="/Login" element={<Login/>} />
       </Routes>
 
       <footer className="footer"></footer>

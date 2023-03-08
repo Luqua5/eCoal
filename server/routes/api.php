@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ArticleController;
 
 /*
@@ -22,11 +23,17 @@ use App\Http\Controllers\ArticleController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/test', [AuthController::class, 'test']);
+Route::get('/league/country/{country}', [LeagueController::class,'leagueByCountry']);
+Route::get('/league', [LeagueController::class,'allLeagues']);
+Route::get('/league/type/{type}', [LeagueController::class,'leagueByType']);
+
 Route::get('/article', [ArticleController::class,'article']);
-Route::get('/article/{id}', [ArticleController::class,'articleById']);                 
-Route::post('/article/remove/{id}', [ArticleController::class,'addArticle']);                 
-Route::post('/article/add', [ArticleController::class,'removeArticle']);                 
+
+Route::get('/article/{id}', [ArticleController::class,'articleById']);
+Route::delete('/article/{id}', [ArticleController::class,'deleteArticle']);             
+Route::post('/article', [ArticleController::class,'addArticle']);             
+Route::patch('/article/{id}', [ArticleController::class,'updateArticle']);             
+
 
 
 
@@ -39,6 +46,7 @@ Route::group([
                                 return $request->user();
                          });
 });
+
 
 
 
