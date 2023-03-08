@@ -25,6 +25,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/test', [AuthController::class, 'test']);
 Route::get('/article', [ArticleController::class,'article']);
 Route::get('/article/{id}', [ArticleController::class,'articleById']);                 
+Route::post('/article/remove/{id}', [ArticleController::class,'addArticle']);                 
+Route::post('/article/add', [ArticleController::class,'removeArticle']);                 
 
 
 

@@ -24,4 +24,20 @@ class Article extends Model
     {
         return $this->all();
     }
+
+    public function addArticle(){
+        $article = new Article();
+        $article->title = request('title');
+        $article->content = request('content');
+        $article->thumbnailURL = request('thumbnailURL');
+        $article->mediaType = request('mediaType');
+        $article->mediaURL = request('mediaURL');
+        $article->leadStory = request('leadStory');
+        $article->save();
+    }
+
+    public function removeArticle($id){
+        $article = Article::find($id);
+        $article->delete();
+    }
 }

@@ -21,5 +21,15 @@ class ArticleController extends Controller
         
     }
 
-    
+    public function addArticle(Request $request){
+        $article = new article();
+        $article->addArticle();
+        return response()->json(["message" => "Article added."]);
+    }
+
+    public function removeArticle($id){
+        $article = new article();
+        $article->removeArticle($id);
+        return response()->json(["message" => "Article removed."]);
+    }
 }
