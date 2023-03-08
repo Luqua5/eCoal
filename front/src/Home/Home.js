@@ -58,7 +58,7 @@ export default function Home() {
                         />
                         <Button variant="outline-secondary"><img className="searchIcon" src={search} alt="Button image" /></Button>
                     </Form>
-                                <Nav.Link href="Home.js">Home</Nav.Link>
+                                <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="/Login">Log In</Nav.Link>
                                 <Nav.Link href="/Login">About Us</Nav.Link>
                                 <NavDropdown title="Leagues" id="basic-nav-dropdown">
