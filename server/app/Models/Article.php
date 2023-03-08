@@ -19,10 +19,19 @@ class Article extends Model
         return $this->all();
     }
 
+
     public function deleteArticle($id)
     {
         return $this->where('id', $id)->delete();
     }
     
-    
+    public function updateArticle($id, $validatedData)
+    {
+        return $this->where('id', $id)->update([
+            'title' => $validatedData['title'],
+            'content' => $validatedData['content'],
+            'thumbnailURL' => $validatedData['thumbnailURL'],
+            'leadStory' => $validatedData['leadStory']
+        ]);
+    }
 }

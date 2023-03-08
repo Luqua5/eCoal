@@ -11,7 +11,7 @@ export default function Login(props) {
             <div className="container2 ">
                 <article className="card-body">
                     <a
-                        href="/user/register"
+                        href="/Register"
                         className="float-right btn btn-outline-primary"
                     >
                         Sign up
@@ -53,4 +53,8 @@ export default function Login(props) {
         </>
         // <div>asdasdasdas</div>
     );
+}
+
+function signup(){
+
 }

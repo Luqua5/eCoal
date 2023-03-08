@@ -20,6 +20,7 @@ class ArticleController extends Controller
         return response()->json($theArticle);
     }
 
+
     public function deleteArticle($id){
         $article = new article();
         $article->deleteArticle($id);
@@ -33,6 +34,10 @@ class ArticleController extends Controller
             'thumbnailURL' => 'required|string',
             'leadStory' => 'required|integer',
         ]);
+
+        if($validatedData->fails()){
+            return response()->json(['message' => 'Validation failed']);
+        }
         
         $article = new article();
 
@@ -46,5 +51,23 @@ class ArticleController extends Controller
         
 
         return response()->json(['message' => 'Article added successfully']);
+    }
+
+    public function updateArticle(Request $request, $id){
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:50',
+            'content' => 'required|string',
+            'thumbnailURL' => 'required|string',
+            'leadStory' => 'required|integer',
+        ]);
+     
+        
+        $article = new article();
+
+        $article->updateArticle($id, $validatedData);
+
+        
+
+        return response()->json(['message' => 'Article updated successfully']);
     }
 }
