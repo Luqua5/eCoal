@@ -9,6 +9,7 @@ class ArticleController extends Controller
 {
 
     public function article(){
+
         $article = new article();
         $allArticles = $article->allArticles()->toJson();
         return response()->json($allArticles);
@@ -60,13 +61,10 @@ class ArticleController extends Controller
             'thumbnailURL' => 'required|string',
             'leadStory' => 'required|integer',
         ]);
-     
         
         $article = new article();
 
-        $article->updateArticle($id, $validatedData);
-
-        
+        $article->updateArticle($id, $validatedData);     
 
         return response()->json(['message' => 'Article updated successfully']);
     }

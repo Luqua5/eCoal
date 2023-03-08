@@ -6,6 +6,7 @@ import { Route, Link, Routes } from "react-router-dom";
 import Home from "./Home/Home";
 import Article from "./article/Article";
 import ArticleDetail from "./article/ArticleDetail";
+import Fixture from './Fixture/Fixture';
 import Login from "./Login";
 import Register from "./user/Register";
 import {useCookies} from "react-cookie"
@@ -38,6 +39,7 @@ function App() {
         <Route exact={true} path="/ArticleDetail/:id" element={<ArticleDetail/>} />
         <Route exact={true} path="/Article" element={<Article/>} />
         <Route exact={true} path="/Login" element={<Login/>} />
+        <Route exact={true} path="/Fixture" element={<Fixture/>} />
         <Route exact={true} path="/Register" element={<Register/>} />
       </Routes>
 
