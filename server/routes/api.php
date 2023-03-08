@@ -23,6 +23,7 @@ use App\Http\Controllers\ArticleController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+
 Route::get('/league/country/{country}', [LeagueController::class,'leagueByCountry']);
 Route::get('/league', [LeagueController::class,'allLeagues']);
 Route::get('/league/type/{type}', [LeagueController::class,'leagueByType']);
@@ -32,7 +33,7 @@ Route::get('/article', [ArticleController::class,'article']);
 Route::get('/article/{id}', [ArticleController::class,'articleById']);
 Route::delete('/article/{id}', [ArticleController::class,'deleteArticle']);             
 Route::post('/article', [ArticleController::class,'addArticle']);             
-Route::post('/article/{id}', [ArticleController::class,'updateArticle']);             
+Route::post('/article/{id}', [ArticleController::class,'updateArticle']);
 
 
 

@@ -1,4 +1,4 @@
-import "./Fixture.css";
+import "./LiveFixture.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
 
@@ -12,7 +12,7 @@ import Article from "../article/Article";
 import logo from '../image/final_red_1.png'; 
 
 
-export default function Fixture() {
+export default function LiveFixture() {
 
     
     

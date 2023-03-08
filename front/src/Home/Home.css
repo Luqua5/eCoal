@@ -6,3 +6,16 @@
 .searchIcon{
     width:20px;
 }
+
+.articles{
+    margin-bottom: 10vh;
+}
+
+.bottomNavbar {
+    max-height: 10vh; 
+    justify-content: space-evenly !important;
+}
+.bottomNavbar .icon {
+    max-height: 4vh;
+}
+  

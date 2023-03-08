@@ -9,16 +9,21 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Article from "../article/Article";
 
+import home from "../image/home.png";
+import streaming from "../image/streaming.png";
+import profil from "../image/profil.png";
 import logo from "../image/final_red_1.png";
 import search from "../image/search.png";
 
 import Form from "react-bootstrap/Form";
+import {useCookies} from "react-cookie"
+
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 // import { Route, Link, Routes, useNavigate } from "react-router-dom";
 
-export default function Home() {
+export default function Home(props) {
   //make a get request to localhost:8000/test with axios
 
   const [data, setData] = useState([]);
@@ -35,6 +40,21 @@ export default function Home() {
     // console.log(articles)
     setData(articles);
     // console.log(data)
+  }
+
+  async function logout(){
+
+      // axios({
+      //   method: 'get',
+      //   url: 'http://localhost:8000/api/logout',
+      //   headers: {
+      //     'Authorization': 'Bearer ' + props.cookie.cookie.token,
+      //     'Content-Type': 'application/json'
+      //   }
+      // }).then((response) => {
+      //    console.log(response)
+      //  });
+      props.removeCookie("mycookie")
   }
 
   return (
@@ -80,18 +100,34 @@ export default function Home() {
           </Container>
         </Navbar>
 
-        {data.length ? (
-          data.map((n) => (
-            <Article
-              key={n.id}
-              title={n.title}
-              content={n.content}
-              thumbnail={n.thumbnail}
-            ></Article>
-          ))
-        ) : (
-          <div>LOADING</div>
-        )}
+        <div className="articles">
+
+
+          {data.length ? (
+            data.map((n) => (
+              <Article
+                key={n.id}
+                title={n.title}
+                content={n.content}
+                thumbnail={n.thumbnail}
+              ></Article>
+            ))
+          ) : (
+            <div>LOADING</div>
+          )}
+
+        </div>
+
+
+        <Navbar bg="light" fixed="bottom" className="bottomNavbar">
+          
+                <Nav.Link href="/"> <img className="homeIcon icon" src={home}/> </Nav.Link>
+                <Nav.Link href="/LiveFixture"> <img className="homeStreaming icon" src={streaming}/> </Nav.Link>
+                <Nav.Link href="/User"> <img className="homeProfil icon" src={profil}/> </Nav.Link>
+                <button onClick={logout}>Logout</button>
+
+          
+        </Navbar>
 
         {/* {data.map( n => console.log(n))} */}
 
