@@ -62,7 +62,7 @@ export default function Home() {
                     </Container>
                 </Navbar>
 
-                {data.length ? data.map(n => <Article key={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail}></Article>) : <div>LOADING</div>}
+                {data.length ? data.map(n => <Article key={n.id} id={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail}></Article>) : <div>LOADING</div>}
 
                  
 

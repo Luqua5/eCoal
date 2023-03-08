@@ -37,7 +37,7 @@ function App() {
         <Route exact={true} path="/" element={<Home/>} />
         <Route exact={true} path="/ArticleDetail/:id" element={<ArticleDetail/>} />
         <Route exact={true} path="/Article" element={<Article/>} />
-        <Route exact={true} path="/Login" element={<Login/>} />
+        <Route exact={true} path="/Login" element={<Login setCookie={setCookie}/>} />
         <Route exact={true} path="/Register" element={<Register/>} />
       </Routes>
 

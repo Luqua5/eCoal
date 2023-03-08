@@ -31,13 +31,15 @@ export default function Register() {
         //             setError("Creation failed")
         //         }
         //     });
-        if(await axios.post(`http://localhost:8000/api/register`,{name: name, email: email, password: password})){
-            setError("Account Created")
-        }
+        const data = await axios.post(`http://localhost:8000/api/register`,{name: name, email: email, password: password})
+        console.log("=>",data);         
         // if(axios.post(`http://localhost:8000/api/register/`, { name: name, password: password, admin: 0 })){
         //                         setError("Account created")
         //                         setNavigate(true)
         //                     }
+        if(data){
+            setNavigate(true)
+        }
 
 
     }
@@ -45,7 +47,7 @@ export default function Register() {
 
     return (
         <><div className="container2">
-            {navigate ? (<Navigate to={"/user/login"}/>) : null}
+            {navigate ? (<Navigate to={"/Login"}/>) : null}
             <div className="card">
                 <article className="card-body">
                     <a href="/user/login" className="float-right btn btn-outline-primary">Sign in</a>

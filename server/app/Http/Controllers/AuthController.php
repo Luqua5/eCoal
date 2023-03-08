@@ -18,7 +18,7 @@ class AuthController extends Controller
                     'email' => 'required|string|email|max:255|unique:users',
                     'password' => 'required|string|min:8',
         ]);
-        return response()->json(["message" => "Register."]);
+        //return response()->json(["message" => "Register."]);
         $user = User::create([
                     'name' => $validatedData['name'],
                     'email' => $validatedData['email'],
