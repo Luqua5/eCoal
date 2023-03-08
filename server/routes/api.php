@@ -32,7 +32,7 @@ Route::get('/article', [ArticleController::class,'article']);
 Route::get('/article/{id}', [ArticleController::class,'articleById']);
 Route::delete('/article/{id}', [ArticleController::class,'deleteArticle']);             
 Route::post('/article', [ArticleController::class,'addArticle']);             
-Route::patch('/article/{id}', [ArticleController::class,'updateArticle']);             
+Route::post('/article/{id}', [ArticleController::class,'updateArticle']);             
 
 
 

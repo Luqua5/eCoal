@@ -56,23 +56,15 @@ class ArticleController extends Controller
     public function updateArticle(Request $request, $id){
         $validatedData = $request->validate([
             'title' => 'required|string|max:50',
-            'content' => 'required|text',
+            'content' => 'required|string',
             'thumbnailURL' => 'required|string',
             'leadStory' => 'required|integer',
         ]);
-
-        if($validatedData->fails()){
-            return response()->json(['message' => 'Validation failed']);
-        }
+     
         
         $article = new article();
 
-        $article->title = $validatedData['title'];
-        $article->content = $validatedData['content'];
-        $article->thumbnailURL = $validatedData['thumbnailURL'];
-        $article->leadStory = $validatedData['leadStory'];
-
-        $article->save();
+        $article->updateArticle($id, $validatedData);
 
         
 

@@ -58,9 +58,7 @@ class AuthController extends Controller
         return response()->json(["message" => "Logout."]);
     }
 
-    public function test(){
-        return response()->json(["message" => "Test."]);
-    }
+    
 
   
 
