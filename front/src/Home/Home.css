@@ -19,3 +19,12 @@
     max-height: 4vh;
 }
   
+
+
+.cardArticle{
+    background-color: #fffcd5;
+}
+.card{
+    background-color: #fffcd5 !important;
+    border:none !important;
+}

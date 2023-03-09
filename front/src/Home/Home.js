@@ -15,7 +15,6 @@ export default function Home(props) {
     //make a get request to localhost:8000/test with axios
 
   const [data, setData] = useState([]);
-    const [selectedData, setSelectedData] = useState([]);
   const [selectedData, setSelectedData] = useState([]);
 
     useEffect(() => {
