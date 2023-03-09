@@ -13,14 +13,35 @@ return new class extends Migration
     {
         Schema::create('match', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('team1_id') -> references('id') -> on('teams') -> onDelete('cascade');
-            $table->foreignId('team2_id') -> references('id') -> on('teams') -> onDelete('cascade');
+            $table->foreignId('home') -> references('id') -> on('teams') -> onDelete('cascade');
+            $table->foreignId('away') -> references('id') -> on('teams') -> onDelete('cascade');
             $table->foreignId('league_id') -> references('id') -> on('league') -> onDelete('cascade');
             $table->date('date');
-            $table->integer('score1');
-            $table->integer('score2');
+            $table->integer('season');
+            $table->integer('scoreHome');
+            $table->integer('scoreAway');
             $table->timestamps();
         });
+
+
+        $fixture = Http::withHeaders([
+            'X-RapidAPI-Key' => 'ce91996be2mshac0be530ceebf14p1d3fecjsn68a8a1fd9afb',
+	        'X-RapidAPI-Host' => 'api-football-v1.p.rapidapi.com'
+        ])->get('https://v3.football.api-sports.io/fixtures');
+        $fixture = json_decode($fixture, true);
+
+        foreach ($fixture['response'] as $key => $value) {
+            DB::table('match')->insert([
+                'home' => $value['teams']['home']['id'],
+                'away' => $value['teams']['away']['id'],
+                'league_id' => $value['league']['id'],
+                'season' => $value['league']['season'],
+                'date' => $value['fixture']['date'],
+                'scoreHome' => $value['goals']['home'],
+                'scoreAway' => $value['goals']['away'],
+                
+            ]);
+        }
     }
 
     /**

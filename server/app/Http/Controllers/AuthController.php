@@ -6,6 +6,8 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\PersonalAccessToken;
+
 
 use  App\Models\User;
 
@@ -18,7 +20,7 @@ class AuthController extends Controller
                     'email' => 'required|string|email|max:255|unique:users',
                     'password' => 'required|string|min:8',
         ]);
-        //return response()->json(["message" => "Register."]);
+        
         $user = User::create([
                     'name' => $validatedData['name'],
                     'email' => $validatedData['email'],
@@ -26,6 +28,7 @@ class AuthController extends Controller
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
+
         return response()->json([
                     'access_token' => $token,
                     'token_type' => 'Bearer',
@@ -48,6 +51,7 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
+            'name' => $user->name,
             'access_token' => $token,
             'token_type' => 'Bearer',
         ]);
@@ -58,9 +62,7 @@ class AuthController extends Controller
         return response()->json(["message" => "Logout."]);
     }
 
-    public function test(){
-        return response()->json(["message" => "Test."]);
-    }
+    
 
   
 

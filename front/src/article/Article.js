@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ArticleDetail";
+import "./Article.css";
+ 
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -48,10 +50,10 @@ export default function Article(props) {
         <>
 
             {console.log(props.title)}
-            <div>
+           
 
-                <Row xs={1} md={2} className="g-4">
-
+            <Row xs={1} md={2} className="g-4 cardArticle">
+                    
                     <Col className="mt-5">
                         <Card >
                             <Card.Img variant="top" src="holder.js/100px160" />
@@ -71,7 +73,7 @@ export default function Article(props) {
 
 
 
-            </div>
+           
 
 
 

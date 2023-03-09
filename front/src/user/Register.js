@@ -1,10 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Navigate } from 'react-router'
+import { useCookies } from "react-cookie";
+
 // import { Header } from "../header/Header";
-export default function Register() {
+export default function Register( props ) {
     const [error, setError] = useState('');
     const[navigate, setNavigate] = useState(false)
+
+    
     async function registerUser(e) {
         e.preventDefault();
         let email = document.getElementById('email').value;
@@ -31,8 +35,20 @@ export default function Register() {
         //             setError("Creation failed")
         //         }
         //     });
-        const data = await axios.post(`http://localhost:8000/api/register`,{name: name, email: email, password: password})
-        console.log("=>",data);         
+        // const data = await axios.post(`http://localhost:8000/api/register`,{name: name, email: email, password: password})
+        // console.log("=>",data);         
+       
+        axios.post(`http://localhost:8000/api/register`, { name: name, email: email, password: password })
+            .then(response => {
+            setError("Account Created");
+            console.log(response.data.access_token);
+            props.setCookie("mycookie", { name: name, token: response.data.access_token }, "/");
+            
+            })
+            .catch(error => {
+                // what do we do if there's an error ?
+            });
+      
         // if(axios.post(`http://localhost:8000/api/register/`, { name: name, password: password, admin: 0 })){
         //                         setError("Account created")
         //                         setNavigate(true)
@@ -50,7 +66,7 @@ export default function Register() {
             {navigate ? (<Navigate to={"/Login"}/>) : null}
             <div className="card">
                 <article className="card-body">
-                    <a href="/user/login" className="float-right btn btn-outline-primary">Sign in</a>
+                    <a href="Login" className="float-right btn btn-outline-primary">Sign in</a>
                     <h4 className="card-title mb-4 mt-1">Sign up</h4>
                     {/* <div className="register"> */}
                     <h1>Register</h1>
