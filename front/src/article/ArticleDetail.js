@@ -1,6 +1,10 @@
-// import "./Home.css";
+import "./ArticleDetail.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { json, useParams } from "react-router-dom";
+// import { Navigate, useParams, Link } from "react-router-dom";
+
+
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -13,45 +17,39 @@ import Row from 'react-bootstrap/Row';
 export default function ArticleDetail(props) {
     //make a get request to localhost:8000/test with axios
 
-    const [data, setData] = useState(undefined);
+    const [data, setData] = useState([]);
     const [tags, setTags] = useState([]);
 
+    // const queryParameters = new URLSearchParams(window.location.search)
+    // console.log(window.location.search)
+    // console.log (queryParameters.get("id"))
+    // let { id } = useParams();
+    let params = useParams()
 
-    // useEffect(() => {
-    //     getArticles();
-    // }, []);
+    useEffect(() => {
+        getData();
+        console.log(data)
+    }, []);
 
-    // async function getArticles() {  // The function is asynchronous
-    //     const articles = (await axios.get('http://localhost:8000/api/test')).data
-    //     console.log(articles)
-    //     return articles;
-    // }
+    async function getData() {  // The function is asynchronous
+        const data = JSON.parse((await axios.get("http://localhost:8000/api/article/" + params.id)).data);        
+        console.log(data)
+        setData(data)
+        // console.log(data)
+
+    }
     return (
         <>
-        {console.log(props.thumbnail)}
+            {/* {console.log(data.content)} */}
             <div>
-                {/* HoME
-            {getArticles()} */}
-
-                <Row xs={1} md={2} className="g-4">
-                    
-                        <Col>
-                            <Card className="mt-5">
-                                <Card.Img variant="top" src={props.thumbnail} />
-                                <Card.Body>
-                                    <Card.Title>{props.title}</Card.Title>
-                                    <Card.Text>
-                                        This is a longer card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit
-                                        longer.
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    
-                </Row>
-
-
+            
+            {data.length ? <div>
+                <div>{data[0].title}</div>
+                <div>{data[0].content}</div>
+                
+                </div>
+            
+            : <div>LOADING</div>}
             </div>
         </>
     );
