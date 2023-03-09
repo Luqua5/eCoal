@@ -150,7 +150,7 @@ export default function Home(props) {
             {/* {console.log(league)} */}
 
             <div>
-                <Navbar bg="light" expand="lg" className="navBar">
+                <Navbar  expand="lg" className="navBar">
                     <Container>
                         <Navbar.Brand href="#home">
                             <image className="logo" src="/image/logo_txt.png" />
@@ -211,7 +211,7 @@ export default function Home(props) {
                 {selectedData.length ? selectedData.map(n => <Article key={n.id} id={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail}></Article>) : <div>LOADING</div>}
 
 
-                <Navbar bg="light" fixed="bottom" className="bottomNavbar">
+                <Navbar  fixed="bottom" className="bottomNavbar">
 
                     <Nav.Link href="/"> <img className="homeIcon icon" src="/image/home.png " /> </Nav.Link>
                     <Nav.Link href="/LiveFixture"> <img className="homeStreaming icon" src="/image/streaming.png" /> </Nav.Link>

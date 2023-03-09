@@ -13,6 +13,9 @@
 .card {
     display: flex;
     flex-direction: column;
+    background-color: #fffcd5;
+    outline: none;
+    border: none !important;
 }
 
 .card .card-img-top {
