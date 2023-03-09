@@ -11,6 +11,9 @@ import Login from "./Login/Login";
 import Register from "./user/Register";
 import User from "./user/User";
 import {useCookies} from "react-cookie"
+import AddArticle from "./AddArticle/AddArticle";
+import EditArticle from "./EditArticle/EditArticle";
+
 import Ligue1 from './components/Ligue1';
 import ChampionsLeague from './components/ChampionsLeague';
 import AboutUs from './components/AboutUs';
@@ -36,6 +39,8 @@ function App() {
         <Route exact={true} path="/" element={<Home cookie={cookies} removeCookie={removeCookie}/>} />
         <Route exact={true} path="/ArticleDetail/:id" element={<ArticleDetail/>} />
         <Route exact={true} path="/Article" element={<Article/>} />
+        <Route exact={true} path="/AddArticle" element={<AddArticle/>} />
+        <Route exact={true} path="/EditArticle/:id" element={<EditArticle/>} />
         <Route exact={true} path="/Login" element={<Login setCookie={setCookie}/>} />
         <Route exact={true} path="/Register" element={<Register setCookie={setCookie}/>} />
         <Route exact={true} path="/LiveFixture" element={<LiveFixture/>} />

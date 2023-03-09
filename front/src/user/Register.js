@@ -42,10 +42,10 @@ export default function Register( props ) {
        
         axios.post(`http://localhost:8000/api/register`, { name: name, email: email, password: password })
             .then(response => {
-            setError("Account Created");
-            console.log(response.data.access_token);
-            props.setCookie("mycookie", { name: name, token: response.data.access_token }, "/");
-            setNavigate(true)
+                setError("Account Created");
+                console.log(response.data.access_token);
+                props.setCookie("mycookie", { name: name, token: response.data.access_token }, "/");
+                setNavigate(true)
             })
             .catch(error => {
                 // what do we do if there's an error ?
