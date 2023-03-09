@@ -1,4 +1,17 @@
-.logo img{
-    width: 100px;
+.match img{
+    width: 60px;
     height: auto;
+    margin-right: 10px;
+}
+
+.match .card{
+    width: 90%;
+    margin: 0 auto;
+    background-color: transparent;
+    border: solid 2px #52A457;
+}
+
+.match .card-title{
+    display: flex;
+    align-items: center;
 }

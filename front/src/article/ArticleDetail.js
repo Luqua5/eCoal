@@ -1,8 +1,7 @@
 import "./ArticleDetail.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { json, useParams } from "react-router-dom";
-// import { Navigate, useParams, Link } from "react-router-dom";
+import { json, useParams, useNavigate, Link } from "react-router-dom";
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -17,7 +16,7 @@ import Row from 'react-bootstrap/Row';
 
 export default function ArticleDetail(props) {
     //make a get request to localhost:8000/test with axios
-
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [tags, setTags] = useState([]);
 
@@ -39,6 +38,18 @@ export default function ArticleDetail(props) {
         // console.log(data)
 
     }
+
+    async function remove(){
+        await axios.delete("http://localhost:8000/api/article/" + params.id)
+        .then(res => {
+            console.log(res);
+            if (res.status == 200) {
+                navigate("/");
+            }
+        });
+
+        
+    }
     return (
         <>
             {/* {console.log(data.content)} */}
@@ -55,8 +66,8 @@ export default function ArticleDetail(props) {
                     <div className="Date-art">03/03/2023 14:22</div>
                     <div className="content">{data[0].content}</div>
                     <div className="btn-container">
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <Link to={`/EditArticle/${params.id}`}>Edit</Link>
+                        <button onClick={remove}>Delete</button>
                     </div>
                 </div>
 

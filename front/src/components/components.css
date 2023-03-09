@@ -5,6 +5,7 @@
 .TopNav{
     background-color: #fffcd5;
     border-bottom: 3px solid #2f2F2F;
+    
 }
 
 .container{
@@ -12,7 +13,7 @@
     justify-content: space-evenly;
 }
 
-.logo{
+.logo-nav{
     transform: translateX(-110px);
 }
 

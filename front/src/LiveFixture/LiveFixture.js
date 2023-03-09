@@ -2,6 +2,9 @@ import "./LiveFixture.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -18,6 +21,7 @@ export default function LiveFixture() {
     
     return (
         <>
+            <Header/>
             <div id="wg-api-football-games"
                 data-host="api-football-v1.p.rapidapi.com"
                 data-key="ce91996be2mshac0be530ceebf14p1d3fecjsn68a8a1fd9afb"
@@ -34,6 +38,7 @@ export default function LiveFixture() {
                 data-modal-show-logos="true">
             </div>
             
+            <Footer/>
 
         </>
     );

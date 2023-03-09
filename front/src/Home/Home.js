@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 // import Header from './Header';
 
+
 // import logo from "../image/profil.png";
 
 
@@ -56,7 +57,7 @@ export default function Home(props) {
         // console.log(articles)
         setData(articles);
         setSelectedData(articles)
-        // console.log(data)
+        //console.log(selectedData)
     }
 
     async function getLeagues() {
@@ -84,6 +85,7 @@ export default function Home(props) {
             console.log(response)
         });
         props.removeCookie("mycookie")
+
     }
 
 
@@ -103,18 +105,7 @@ export default function Home(props) {
 
 
 
-    function SearchFilter() {
-        let searchValue = document.getElementById('search').value;
-        console.log(searchValue)
-        //    console.log(data.filter(article => article.title.includes("ecoal")))
-        // const [searchTerm, setSearchTerm] = useState("");
-        // console.log("HALOO" + data.filter(article => article.title.toUpperCase().includes("TEST")))
-        let newArray = data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase()));
-        console.log(newArray)
-        setSelectedData(data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase())));
-
-
-    }
+  
 
 
     function SearchLeague() {
@@ -208,7 +199,7 @@ export default function Home(props) {
                     </Container>
                 </Navbar>
 
-                {selectedData.length ? selectedData.map(n => <Article key={n.id} id={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail}></Article>) : <div>LOADING</div>}
+                {selectedData.length ? selectedData.map(n => <Article key={n.id} id={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail} league_id={n.league_id}></Article>) : <div>LOADING</div>}
 
                 <Footer />
                 {/* <Navbar bg="light" fixed="bottom" className="bottomNavbar">

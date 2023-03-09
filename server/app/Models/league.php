@@ -25,4 +25,9 @@ class league extends Model
     {
         return $this->where('type', $type)->get();
     }
+
+    public function leagueByID($id)
+    {
+        return $this->where('id', $id)->get();
+    }
 }
