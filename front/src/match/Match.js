@@ -77,13 +77,13 @@ export default function Match() {
             setData(response.data.response)
             setSelectedData(response.data.response)
             // setLeague(response.data.league.name)
-            const leagues = [...new Set(response.data.response.map(data=> data.league.name))]; // Get unique genders from the data
+            const leagues = [...new Set(response.data.response.map(data => data.league.name))]; // Get unique genders from the data
             leagues.unshift("All League")
             setLeague(leagues)
-            const seasons = [...new Set(response.data.response.map(data=> (data.league.season)))]; // Get unique genders from the data
+            const seasons = [...new Set(response.data.response.map(data => (data.league.season)))]; // Get unique genders from the data
             // console.log(seasons)
             setSeason(seasons)
-            
+
 
         }).catch(function (error) {
             console.error(error);
@@ -95,10 +95,10 @@ export default function Match() {
             setSelectedData(data.concat(response.data.response))
 
             // setLeague(response.data.league.name)
-            const leagues = [...new Set(response.data.response.map(data=> data.league.name))];
+            const leagues = [...new Set(response.data.response.map(data => data.league.name))];
             leagues.unshift("All League") // Get unique genders from the data
             setLeague(league.concat(leagues))
-            const seasons = [...new Set(response.data.response.map(data=> (data.league.season)))]; // Get unique genders from the data
+            const seasons = [...new Set(response.data.response.map(data => (data.league.season)))]; // Get unique genders from the data
             // console.log(season)
             // console.log(seasons)
             setSeason(season.concat(seasons))
@@ -131,15 +131,16 @@ export default function Match() {
 
     async function SearchMatchByLeague(n) {
         // let teamId = document.getElementById('searchLeague').value;
-        if(n.includes( "All League")){
+        if (n.includes("All League")) {
             console.log("all league")
             console.log(data)
-           setSelectedData(data)
-        }else{
-        console.log(n)
-        let newArray = data.filter(x => x.league.name.includes(n) );
-        console.log(newArray)
-        setSelectedData(newArray)}
+            setSelectedData(data)
+        } else {
+            console.log(n)
+            let newArray = data.filter(x => x.league.name.includes(n));
+            console.log(newArray)
+            setSelectedData(newArray)
+        }
 
 
         // setSelectedData(selectedData.filter(x => x.league_id === n));  
@@ -153,7 +154,7 @@ export default function Match() {
     async function SearchMatchBySeason(n) {
         // let teamId = document.getElementById('searchLeague').value;
         console.log(n)
-        let newArray = data.filter(x => x.league.season === n );
+        let newArray = data.filter(x => x.league.season === n);
         console.log(newArray)
         setSelectedData(newArray)
 
@@ -167,39 +168,40 @@ export default function Match() {
 
     return (
         <>
-        {console.log(data)}
-        {console.log(season)}
-        <Header></Header>
-        <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Dropdown Button
-      </Dropdown.Toggle>
+            {console.log(data)}
+            {console.log(season)}
+            <Header />
+            <div className="dd-menu">
+                <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Season
+                    </Dropdown.Toggle>
 
-      <Dropdown.Menu>
-      {season.length ? season.map(n => <Dropdown.Item  onClick={() => {{SearchMatchBySeason(n)}}}>{n} </Dropdown.Item>) : <div>LOADING</div>}
-      {/* <Dropdown.Item key="1">2021 </Dropdown.Item>
+                    <Dropdown.Menu>
+                        {season.length ? season.map(n => <Dropdown.Item onClick={() => { { SearchMatchBySeason(n) } }}>{n} </Dropdown.Item>) : <div>LOADING</div>}
+                        {/* <Dropdown.Item key="1">2021 </Dropdown.Item>
       <Dropdown.Item key="2">2022 </Dropdown.Item> */}
-      </Dropdown.Menu>
-    </Dropdown>
-    
-    <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Dropdown Button
-      </Dropdown.Toggle>
+                    </Dropdown.Menu>
+                </Dropdown>
 
-      <Dropdown.Menu>
-        
-      {league.length ? league.map(n => <Dropdown.Item onClick={() => {{SearchMatchByLeague(n)}}}>{n} </Dropdown.Item>) : <div>LOADING</div>}
-      {/* <Dropdown.Item key="1">2021 </Dropdown.Item>
+                <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        League
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+
+                        {league.length ? league.map(n => <Dropdown.Item onClick={() => { { SearchMatchByLeague(n) } }}>{n} </Dropdown.Item>) : <div>LOADING</div>}
+                        {/* <Dropdown.Item key="1">2021 </Dropdown.Item>
       <Dropdown.Item key="2">2022 </Dropdown.Item> */}
-      </Dropdown.Menu>
-    </Dropdown>
-    
+                    </Dropdown.Menu>
+                </Dropdown>
 
+            </div>
             <div className="match">
-                
+
                 {selectedData.length ? selectedData.map(n => <MatchDetail
-                
+
                     away={n.teams.away.name}
                     home={n.teams.home.name}
                     goalsHome={n.goals.home}
@@ -207,7 +209,7 @@ export default function Match() {
                     logoAway={n.teams.away.logo}
                     logoHome={n.teams.home.logo} ></MatchDetail>) : <div>LOADING</div>}
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }
