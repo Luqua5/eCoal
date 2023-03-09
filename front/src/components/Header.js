@@ -6,9 +6,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "./components.css"
 
-
-import logo from '../image/final_red_1.png';
-import search from '../image/search.png';
 import Form from 'react-bootstrap/Form';
 
 function Header() {

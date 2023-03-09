@@ -1,5 +1,4 @@
 import { FaTwitter,FaFacebook,FaLinkedinIn } from "react-icons/fa";
-import profil from "../image/profil.png";
 import React from 'react';
 import './aboutus.css';
 
@@ -15,7 +14,7 @@ function AboutUs() {
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src={profil} alt="..." />
+                                <img class="mx-auto rounded-circle" src="/image/profil.png" alt="..." />
                                 <h4>Parveen Anand</h4>
                                 <p class="text-muted">Lead Designer</p>
                                 <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><FaTwitter /></a>
@@ -25,7 +24,7 @@ function AboutUs() {
                         </div>
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src={profil} alt="..." />
+                                <img class="mx-auto rounded-circle" src="/image/profil.png" alt="..." />
                                 <h4>Diana Petersen</h4>
                                 <p class="text-muted">Lead Marketer</p>
                                 <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><FaTwitter /></a>
@@ -35,7 +34,7 @@ function AboutUs() {
                         </div>
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src={profil} alt="..." />
+                                <img class="mx-auto rounded-circle" src="/image/profil.png" alt="..." />
                                 <h4>Larry Parker</h4>
                                 <p class="text-muted">Lead Developer</p>
                                 <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><FaTwitter /></a>
