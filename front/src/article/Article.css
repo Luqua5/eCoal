@@ -21,18 +21,18 @@
 .article .card .card-img-top {
     max-width: 100%;
     height: 200px;
-    position: relative;
 }
 
 
 .article .CatDisplay {
-    font-family: "Helvetica Neue";
-    font-weight: 800;
+    font-weight: 700;
     font-size: 0.8rem;
     text-transform: uppercase;
     color: white;
     padding: 5px;
     position: absolute;
+    top: 0;
+    left: 0;
     background: rgb(82, 164, 87);
     background: -moz-linear-gradient(90deg, rgba(82, 164, 87, 1) 46%, rgba(82, 164, 87, 0.40388655462184875) 100%);
     background: -webkit-linear-gradient(90deg, rgba(82, 164, 87, 1) 46%, rgba(82, 164, 87, 0.40388655462184875) 100%);
@@ -40,16 +40,34 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#52a457", endColorstr="#52a457", GradientType=1); 
 }
 
-.article .card-title{
+.thumbnail{
+    position: relative;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0) 24%);
+}
+
+.thumbnail .card-title{
     position: absolute;
-    transform: translateX(100px) translateY(170px);
-    font-weight: 800;
-    font-family: "Helvetica Neue";
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    color: white;
 }
 
 .article .card-body{
-    font-family: Poppins;
     color: #2F2F2F;
+}
+
+.article .Article_title{
+    line-height: 100%;
+    text-align: left;
+}
+
+.card-body{
+    padding: 0;
+    padding-top:0.5rem ;
 }
 
 .article .card a{

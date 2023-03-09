@@ -7,8 +7,8 @@
     width:20px;
 }
 
-.articles{
-    margin-bottom: 10vh;
+.lesArticles{
+    margin-bottom: 8vh;
 }
 
 .bottomNavbar {
@@ -19,8 +19,14 @@
     max-height: 4vh;
 }
   
+.show{
+    width: 90vw;
+}
 
-.navBar{
+.show form{
+    flex-direction: row;
+}
+/* .navBar{
     max-height: 60vh;
     overflow-y: auto;
-  }
+  } */

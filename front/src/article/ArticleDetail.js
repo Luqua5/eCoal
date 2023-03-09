@@ -35,7 +35,7 @@ export default function ArticleDetail(props) {
         const data = JSON.parse((await axios.get("http://localhost:8000/api/article/" + params.id)).data);
         console.log(data)
         setData(data)
-        // console.log(data)
+        console.log(data)
 
     }
 
@@ -62,7 +62,7 @@ export default function ArticleDetail(props) {
 
                 {data.length ? <div>
                     <div className="Title">{data[0].title}</div>
-                    <div><img className="articleIMG" src="/image/logo_txt.png" /></div>
+                    <div><img className="articleIMG" src={`http://localhost:8000/storage/upload/${data[0].thumbnailURL}`} /></div>
                     <div className="Date-art">03/03/2023 14:22</div>
                     <div className="content">{data[0].content}</div>
                     <div className="btn-container">

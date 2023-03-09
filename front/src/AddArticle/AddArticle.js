@@ -1,5 +1,5 @@
 // import "./Home.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./AddArticle.css";
 import { Form, Button } from "react-bootstrap";
@@ -11,6 +11,19 @@ export default function AddArticle(props) {
     
     const [league, setLeague] = useState([]);
     const [selectedLeague, setSelectedLeague] = useState([]);
+    const [leagueId, setLeagueId] = useState(-1);
+    const [searchValue, setSearchValue] = useState('');
+
+
+
+
+
+    function selectLeague(x){
+        setSearchValue(x.name);
+        setLeagueId(x.id);
+        setSelectedLeague([]);
+    }
+
     useEffect(() => {
         try{
             axios({
@@ -29,11 +42,11 @@ export default function AddArticle(props) {
     }, []); 
     
     
-    function SearchLeague() {
+    function SearchLeague(e) {
+        setSearchValue(e.target.value);
         let searchValue = document.getElementById('searchLeague').value;                
         setSelectedLeague(league.filter(x => x.name.toUpperCase().includes(searchValue.toUpperCase())));        
         
-        console.log(selectedLeague);
     }
 
     function sendData(){
@@ -42,9 +55,8 @@ export default function AddArticle(props) {
             formData.append('thumbnailURL', document.getElementsByClassName('thumbnailURL')[0].files[0]);
             formData.append('title', document.getElementsByClassName('title')[0].value);
             formData.append('content', document.getElementsByClassName('content')[0].value);
-            formData.append('league_id', selectedLeague[0].id);
+            formData.append('league_id', leagueId);
 
-            console.log(document.getElementsByClassName('thumbnailURL')[0].value);
             axios.post('http://localhost:8000/api/article', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -57,6 +69,7 @@ export default function AddArticle(props) {
         }
     }
 
+    
     return (
         <>
         <Header/>
@@ -71,30 +84,36 @@ export default function AddArticle(props) {
                                         />
 
                                         <Form.Control
-                                            type="textarea"
+                                            as="textarea"
+                                            rows={6}
                                             placeholder="Content"
                                             className="content"
                                             aria-label="Content"
                                         /> 
-
+                                        <label for="thumbnailURL">Chose a thumbnail</label>
                                         <input type="file" id="thumbnailURL" name="thumbnailURL" className="thumbnailURL" /> 
                                     
                         </Form>
-                            <Form className="d-flex">
+                            <Form className="d-flex searchLeague">
+                                    <div className="search">
                                         <Form.Control
+                                        onChange={SearchLeague}
                                             type="search"
-                                            placeholder="Search by league"
+                                            placeholder="Chose a league"
                                             id="searchLeague"
                                             className="me-2"
                                             aria-label="Search"
+                                            value={searchValue}
                                         />
-                                        <Button className="search" variant="outline-secondary" onClick={SearchLeague}>
-                                            <img
-                                                className="searchIcon"
-                                                alt="Button image"
-                                                src="/image/search.png"
-                                            />
-                                        </Button>
+                                        
+                                    </div>
+
+                                    <div className="dropdown">
+                                        <ul id="leagueList">
+                                            { searchValue.length >=3 ? selectedLeague.map((x) => ( <li onClick={() => selectLeague(x)} key={x.id}>{x.name}</li>)) : null}
+                                        </ul>
+                                    </div>
+                                        
                             </Form>
 
                             <button className="publish" onClick={sendData}>   Publish  </button>

@@ -20,6 +20,17 @@ import AboutUs from './components/AboutUs';
 import Match from './match/Match';
 import MatchDetail from './match/MatchDetail';
 
+
+import './fonts/Poppins-Black.ttf'
+import './fonts/Poppins-Bold.ttf'
+import './fonts/Poppins-ExtraBold.ttf'
+import './fonts/Poppins-ExtraLight.ttf'
+import './fonts/Poppins-Light.ttf'
+import './fonts/Poppins-Medium.ttf'
+import './fonts/Poppins-Regular.ttf'
+import './fonts/Poppins-SemiBold.ttf'
+import './fonts/Poppins-Thin.ttf'
+
 //import use cookie
 
 

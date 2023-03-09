@@ -4,12 +4,29 @@ import axios from "axios";
 import "./EditArticle.css";
 import { Form, Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
+import './EditArticle.css';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function EditArticle(props) {
     const navigate = useNavigate();
     const params = useParams();
+    
+
     const [league, setLeague] = useState([]);
     const [selectedLeague, setSelectedLeague] = useState([]);
+    const [leagueId, setLeagueId] = useState(-1);
+    const [searchValue, setSearchValue] = useState('');
+
+
+
+
+
+    function selectLeague(x){
+        setSearchValue(x.name);
+        setLeagueId(x.id);
+        setSelectedLeague([]);
+    }
     useEffect(() => {
         try{
             axios({
@@ -28,11 +45,10 @@ export default function EditArticle(props) {
     }, []); 
     
     
-    function SearchLeague() {
+    function SearchLeague(e) {
+        setSearchValue(e.target.value);
         let searchValue = document.getElementById('searchLeague').value;                
-        setSelectedLeague(league.filter(x => x.name.toUpperCase().includes(searchValue.toUpperCase())));        
-        
-        console.log(selectedLeague);
+        setSelectedLeague(league.filter(x => x.name.toUpperCase().includes(searchValue.toUpperCase())));    
     }
 
     function sendData(){
@@ -60,8 +76,9 @@ export default function EditArticle(props) {
     }
 
     return (
-        <>
-                        <h1>Edit Article</h1>
+        <>  
+            <Header/>
+                        <h2 className="Title">Edit Article</h2>
                         <Form className="formAdd">
                                         <Form.Control
                                             type="text"
@@ -71,7 +88,8 @@ export default function EditArticle(props) {
                                         />
 
                                         <Form.Control
-                                            type="textarea"
+                                            as="textarea"
+                                            rows={6}
                                             placeholder="Content"
                                             className="content"
                                             aria-label="Content"
@@ -80,27 +98,33 @@ export default function EditArticle(props) {
                                         <input type="file" id="thumbnailURL" name="thumbnailURL" className="thumbnailURL" /> 
                                     
                         </Form>
-                            <Form className="d-flex">
+                        <Form className="d-flex searchLeague">
+                                    <div className="search">
                                         <Form.Control
+                                        onChange={SearchLeague}
                                             type="search"
-                                            placeholder="Search by league"
+                                            placeholder="Chose a league"
                                             id="searchLeague"
                                             className="me-2"
                                             aria-label="Search"
+                                            value={searchValue}
                                         />
-                                        <Button variant="outline-secondary" onClick={SearchLeague}>
-                                            <img
-                                                className="searchIcon"
-                                                alt="Button image"
-                                            />
-                                        </Button>
+                                        
+                                    </div>
+
+                                    <div className="dropdown">
+                                        <ul id="leagueList">
+                                            { searchValue.length >=3 ? selectedLeague.map((x) => ( <li onClick={() => selectLeague(x)} key={x.id}>{x.name}</li>)) : null}
+                                        </ul>
+                                    </div>
+                                        
                             </Form>
 
-                            <button onClick={sendData}>   Publish  </button>
+                            <button className="publish" onClick={sendData}>   Publish  </button>
 
 
 
-
+            <Footer/>
 
         </>
     );

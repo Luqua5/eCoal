@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useCookies, withCookies } from "react-cookies";
 import "./Login.css";
-// import { Header } from "./header/Header";
 export default function Login(props) {
 
 

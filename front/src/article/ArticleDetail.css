@@ -22,12 +22,10 @@ a:active { text-decoration: none; }
 }
 
 .content{
-    font-family: Poppins;
     margin: 5px;
 }
 
 .Title{
-    font-family: "Helvetica Neue";
     text-transform: uppercase;
     text-align: center;
     font-size: 1.5rem;
@@ -36,7 +34,6 @@ a:active { text-decoration: none; }
 
 button{
     color: white;
-    font-family: Poppins;
     background-color: #2F2F2F;
     width: 100px;
     height: 50px;
