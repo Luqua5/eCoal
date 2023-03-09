@@ -9,7 +9,7 @@ import search from '../image/search.png';
 
 import Form from 'react-bootstrap/Form';
 
-import Ligue1 from '../Leagues/Ligue1';
+import Ligue1 from './Ligue1';
 
 function Header() {
   return (
@@ -30,8 +30,8 @@ function Header() {
                                     <Button variant="outline-secondary"><img className="searchIcon" src={search} alt="Button image" /></Button>
                                 </Form>
                                 <NavDropdown title="Leagues" id="basic-nav-dropdown">
-                                    <NavDropdown.Item href={Ligue1}>Ligue 1</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Champions League</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Ligue1">Ligue 1</NavDropdown.Item>
+                                    <NavDropdown.Item href="/ChampionsLeague">Champions League</NavDropdown.Item>
                                 </NavDropdown>
                                 <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="/Login">Log In</Nav.Link>

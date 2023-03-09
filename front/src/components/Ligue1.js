@@ -1,4 +1,5 @@
-import Header from '../Home/Header';
+import Header from './Header';
+import Footer from './Footer';
 import React from 'react';
 
 function Ligue1() {
@@ -6,9 +7,9 @@ function Ligue1() {
       <div>
         <Header />
         <main>
-          <h2>My Main Content</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h1>Ligue 1</h1>
         </main>
+        <Footer />
       </div>
     );
   }
