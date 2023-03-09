@@ -59,7 +59,7 @@ export default function Article(props) {
 
                     <Col className="mt-5">
                         <Card >
-                            <Card.Img variant="top" src={`http://localhost:8000/${props.thumbnail}`}/>
+                            <Card.Img variant="top" src={`http://localhost:8000/${props.thumbnail}`}/>git 
                             <Card.Title class="CatDisplay">Category</Card.Title>
                             <Card.Title>{props.title}</Card.Title>
                             <Card.Body>
