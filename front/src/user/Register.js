@@ -43,7 +43,7 @@ export default function Register( props ) {
             setError("Account Created");
             console.log(response.data.access_token);
             props.setCookie("mycookie", { name: name, token: response.data.access_token }, "/");
-            
+            setNavigate(true)
             })
             .catch(error => {
                 // what do we do if there's an error ?

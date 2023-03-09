@@ -11,6 +11,17 @@ import streaming from "../image/streaming.png";
 import profil from "../image/profil.png";
 
 
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Form from 'react-bootstrap/Form';
+
+import Button from 'react-bootstrap/Button';
+
+
+
+
 
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,21 +31,23 @@ import profil from "../image/profil.png";
 export default function Home(props) {
     //make a get request to localhost:8000/test with axios
 
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+  const [selectedData, setSelectedData] = useState([]);
 
     useEffect(() => {
         getArticles();
     }, []);
 
-    async function getArticles() {
-        // The function is asynchronous
-        const articles = JSON.parse(
-            (await axios.get("http://localhost:8000/api/article")).data
-        );
-        // console.log(articles)
-        setData(articles);
-        // console.log(data)
-    }
+  async function getArticles() {
+    // The function is asynchronous
+    const articles = JSON.parse(
+      (await axios.get("http://localhost:8000/api/article")).data
+    );
+    // console.log(articles)
+    setData(articles);
+    setSelectedData(articles)
+    // console.log(data)
+  }
 
     async function logout() {
 
@@ -48,17 +61,81 @@ export default function Home(props) {
         }).then((response) => {
             console.log(response)
         });
-        props.removeCookie("mycookie")
+      props.removeCookie("mycookie")
+  }
+
+
+  function SearchFilter(){
+   let searchValue = document.getElementById('search').value;
+   console.log(searchValue)
+//    console.log(data.filter(article => article.title.includes("ecoal")))
+    // const [searchTerm, setSearchTerm] = useState("");
+    // console.log("HALOO" + data.filter(article => article.title.toUpperCase().includes("TEST")))
+     let newArray = data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase()));
+     console.log(newArray)
+    setSelectedData(data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase())));
+    
+    
     }
 
-    return (
-        <>
-            {/* {console.log(data)} */}
-            <div>
 
-                <Header />
 
-                {data.length ? data.map(n => <Article key={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail}></Article>) : <div>LOADING</div>}
+  return (
+    <>
+      {console.log(selectedData)}
+      <div>
+        <Navbar bg="light" expand="lg">
+          <Container>
+            <Navbar.Brand href="#home">
+              hello
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Form className="d-flex">
+                  <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    id="search"
+                    className="me-2"
+                    aria-label="Search"
+                  />
+                  <Button variant="outline-secondary" onClick={SearchFilter}>
+                    <img
+                      className="searchIcon"
+                    //   src={search}
+                      alt="Button image"
+                    />
+                  </Button>
+                </Form>
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/Login">Log In</Nav.Link>
+                <Nav.Link href="/Login">About Us</Nav.Link>
+                <NavDropdown title="Leagues" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">
+                    Ligue 1
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
+                    Champions League
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+
+                {selectedData.length ? selectedData.map(n => <Article key={n.id} id={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail}></Article>) : <div>LOADING</div>}
+
+
+        <Navbar bg="light" fixed="bottom" className="bottomNavbar">
+          
+                <Nav.Link href="/"> <img className="homeIcon icon" src={home}/> </Nav.Link>
+                <Nav.Link href="/LiveFixture"> <img className="homeStreaming icon" src={streaming}/> </Nav.Link>
+                <Nav.Link href="/User"> <img className="homeProfil icon" src={profil}/> </Nav.Link>
+                <button onClick={logout}>Logout</button>
+
+          
+        </Navbar>
 
                 {/* {data.map( n => console.log(n))} */}
 
