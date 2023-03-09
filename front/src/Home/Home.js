@@ -26,6 +26,7 @@ export default function Home(props) {
   //make a get request to localhost:8000/test with axios
 
   const [data, setData] = useState([]);
+  const [selectedData, setSelectedData] = useState([]);
 
   useEffect(() => {
     getArticles();
@@ -38,6 +39,7 @@ export default function Home(props) {
     );
     // console.log(articles)
     setData(articles);
+    setSelectedData(articles)
     // console.log(data)
   }
 
@@ -56,9 +58,24 @@ export default function Home(props) {
       props.removeCookie("mycookie")
   }
 
+
+  function SearchFilter(){
+   let searchValue = document.getElementById('search').value;
+   console.log(searchValue)
+//    console.log(data.filter(article => article.title.includes("ecoal")))
+    // const [searchTerm, setSearchTerm] = useState("");
+    // console.log("HALOO" + data.filter(article => article.title.toUpperCase().includes("TEST")))
+     let newArray = data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase()));
+     console.log(newArray)
+    setSelectedData(data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase())));
+    
+    
+    }
+
+
   return (
     <>
-      {/* {console.log(data)} */}
+      {console.log(selectedData)}
       <div>
         <Navbar bg="light" expand="lg">
           <Container>
@@ -72,10 +89,11 @@ export default function Home(props) {
                   <Form.Control
                     type="search"
                     placeholder="Search"
+                    id="search"
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button variant="outline-secondary">
+                  <Button variant="outline-secondary" onClick={SearchFilter}>
                     <img
                       className="searchIcon"
                       src={search}
@@ -99,7 +117,7 @@ export default function Home(props) {
           </Container>
         </Navbar>
 
-                {data.length ? data.map(n => <Article key={n.id} id={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail}></Article>) : <div>LOADING</div>}
+                {selectedData.length ? selectedData.map(n => <Article key={n.id} id={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail}></Article>) : <div>LOADING</div>}
 
 
         <Navbar bg="light" fixed="bottom" className="bottomNavbar">
