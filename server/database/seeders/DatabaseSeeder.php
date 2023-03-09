@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'content' => '<h1>Hello from ecoal</h1><p>Nice to see you in <strong>Lens</strong>. Enjoy !</p>',
             'thumbnailURL' => '/ecoal.jpg',
             'mediaType' => 'image',
-            'mediaURL' => '/ecoal.jpg',
+            'mediaURL' => 'http://localhost:8000/ecoal.jpg',
             'league_id' => '1',
             'leadStory' => false,
         ]);
