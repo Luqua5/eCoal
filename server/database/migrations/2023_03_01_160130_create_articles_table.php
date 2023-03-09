@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('thumbnailURL');
+            $table->foreignId('league_id') -> references('id') -> on('league') -> onDelete('cascade') -> nullable();
             $table->string('mediaType')->nullable();
             $table->string('mediaURL')->nullable();
             $table->boolean('leadStory');
