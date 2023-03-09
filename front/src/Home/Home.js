@@ -2,20 +2,15 @@ import "./Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
 import Article from "../article/Article";
+import Header from './Header';
 
 import home from "../image/home.png";
 import streaming from "../image/streaming.png";
 import profil from "../image/profil.png";
-import logo from "../image/final_red_1.png";
-import search from "../image/search.png";
 
-import Form from "react-bootstrap/Form";
+
 
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,14 +18,14 @@ import Form from "react-bootstrap/Form";
 // import { Route, Link, Routes, useNavigate } from "react-router-dom";
 
 export default function Home(props) {
-  //make a get request to localhost:8000/test with axios
+    //make a get request to localhost:8000/test with axios
 
   const [data, setData] = useState([]);
   const [selectedData, setSelectedData] = useState([]);
 
-  useEffect(() => {
-    getArticles();
-  }, []);
+    useEffect(() => {
+        getArticles();
+    }, []);
 
   async function getArticles() {
     // The function is asynchronous
@@ -43,17 +38,17 @@ export default function Home(props) {
     // console.log(data)
   }
 
-  async function logout(){
+    async function logout() {
 
-       axios({
-         method: 'get',
-         url: 'http://localhost:8000/api/logout',
-         headers: {
-           'Authorization': 'Bearer ' + props.cookie.mycookie.token,
-           'Content-Type': 'application/json'
-         }
-       }).then((response) => {
-          console.log(response)
+        axios({
+            method: 'get',
+            url: 'http://localhost:8000/api/logout',
+            headers: {
+                'Authorization': 'Bearer ' + props.cookie.mycookie.token,
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => {
+            console.log(response)
         });
       props.removeCookie("mycookie")
   }
@@ -72,6 +67,8 @@ export default function Home(props) {
     
     }
 
+        props.removeCookie("mycookie")
+    }
 
   return (
     <>
@@ -130,14 +127,14 @@ export default function Home(props) {
           
         </Navbar>
 
-        {/* {data.map( n => console.log(n))} */}
+                {/* {data.map( n => console.log(n))} */}
 
-        {/* <Article name={data.title}></Article> */}
+                {/* <Article name={data.title}></Article> */}
 
-        {/* <div className='articles mt-5'>
+                {/* <div className='articles mt-5'>
                 <Article></Article>
                 </div> */}
-      </div>
-    </>
-  );
+            </div>
+        </>
+    );
 }
