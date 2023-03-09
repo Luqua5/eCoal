@@ -19,3 +19,8 @@
     max-height: 4vh;
 }
   
+
+.navBar{
+    max-height: 60vh;
+    overflow-y: auto;
+  }

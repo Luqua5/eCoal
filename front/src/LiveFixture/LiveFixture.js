@@ -9,7 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Article from "../article/Article";
-import logo from '../image/final_red_1.png'; 
+
 
 
 export default function LiveFixture() {

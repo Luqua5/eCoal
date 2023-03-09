@@ -1,4 +1,64 @@
-.cardArticle{
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("https://fonts.googleapis.com/css?family=Helvetica+Neue");
+}
+
+
+
+.cardArticle {
     margin-left: 0;
     margin-right: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .card-img-top {
+    max-width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+
+.CatDisplay {
+    font-family: "Helvetica Neue";
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: white;
+    padding: 5px;
+    position: absolute;
+    background: rgb(82, 164, 87);
+    background: -moz-linear-gradient(90deg, rgba(82, 164, 87, 1) 46%, rgba(82, 164, 87, 0.40388655462184875) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(82, 164, 87, 1) 46%, rgba(82, 164, 87, 0.40388655462184875) 100%);
+    background: linear-gradient(90deg, rgba(82, 164, 87, 1) 46%, rgba(82, 164, 87, 0.40388655462184875) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#52a457", endColorstr="#52a457", GradientType=1); 
+}
+
+.card-title{
+    position: absolute;
+    transform: translateX(100px) translateY(170px);
+    font-weight: 800;
+    font-family: "Helvetica Neue";
+}
+
+.card-body{
+    font-family: Poppins;
+    color: #2F2F2F;
+}
+
+.card a{
+    text-decoration: none;
+    color: #2F2F2F;
+}
+
+.card a h1{
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.date{
+    font-size: .7rem;
 }
