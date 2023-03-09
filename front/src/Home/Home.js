@@ -67,6 +67,7 @@ export default function Home(props) {
                 {/* <div className='articles mt-5'>
                 <Article></Article>
                 </div> */}
+                <button onClick={logout}>Logout</button>
             </div>
         </>
     );

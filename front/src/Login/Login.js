@@ -5,6 +5,18 @@ import { useCookies, withCookies } from "react-cookies";
 // import "./user/Login.css";
 // import { Header } from "./header/Header";
 export default function Login(props) {
+
+    function loginUser(e){
+        e.preventDefault();
+        axios.post('http://localhost:8000/api/login', {email: document.getElementById('email').value, password: document.getElementById('password').value})
+        .then((response) => {
+            console.log(response)
+            props.setCookie('mycookie', {name:response.data.name, token: response.data.access_token}, '/');
+
+        }).catch(error=>{
+            //what do we do if there is an error?
+        })
+    }
     return (
         <>
             
@@ -17,14 +29,14 @@ export default function Login(props) {
                         Sign up
                     </a>
                     <h4 className="card-title mb-4 mt-1">Sign in</h4>
-                    <form onSubmit={props.onSignin}>
+                    <form onSubmit={(e) => loginUser(e)}>
                         <div className="form-group">
                             <label>Username</label>
                             <input
                                 type="text"
-                                id="username"
+                                id="email"
+                                name="email"
                                 autoComplete="off"
-                                ref={props.usernameRef}
                             />
                         </div>
                         <div className="form-group">
@@ -32,8 +44,8 @@ export default function Login(props) {
                             <input
                                 type="password"
                                 name="password"
+                                id="password"
                                 autoComplete="off"
-                                ref={props.passwordRef}
                             />
                         </div>
                         <div className="form-group">
