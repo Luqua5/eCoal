@@ -4,7 +4,8 @@ import axios from "axios";
 import { json, useParams } from "react-router-dom";
 // import { Navigate, useParams, Link } from "react-router-dom";
 
-
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -32,7 +33,7 @@ export default function ArticleDetail(props) {
     }, []);
 
     async function getData() {  // The function is asynchronous
-        const data = JSON.parse((await axios.get("http://localhost:8000/api/article/" + params.id)).data);        
+        const data = JSON.parse((await axios.get("http://localhost:8000/api/article/" + params.id)).data);
         console.log(data)
         setData(data)
         // console.log(data)
@@ -41,16 +42,27 @@ export default function ArticleDetail(props) {
     return (
         <>
             {/* {console.log(data.content)} */}
+            <Header />
+
+
+
+
             <div>
-            
-            {data.length ? <div>
-                <div>{data[0].title}</div>
-                <div>{data[0].content}</div>
-                
+
+                {data.length ? <div>
+                    <div className="Title">{data[0].title}</div>
+                    <div><img className="articleIMG" src="/image/logo_txt.png" /></div>
+                    <div className="Date-art">03/03/2023 14:22</div>
+                    <div className="content">{data[0].content}</div>
+                    <div className="btn-container">
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </div>
                 </div>
-            
-            : <div>LOADING</div>}
+
+                    : <div>LOADING</div>}
             </div>
+            <Footer />
         </>
     );
 }

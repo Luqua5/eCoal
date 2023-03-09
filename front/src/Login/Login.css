@@ -1,0 +1,33 @@
+.signup{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.login-form{
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    justify-content: space-evenly;
+}
+
+
+.login-form input{
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px #2F2F2F;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.login-form input:focus{
+    outline: none;
+    background-color: #fffcd5;
+}
+
+
+.login-form label{
+    position: absolute;
+}

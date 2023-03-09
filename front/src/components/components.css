@@ -1,0 +1,29 @@
+/*************************************************
+                    TOP MENU
+**************************************************/
+
+.TopNav{
+    background-color: #fffcd5;
+    border-bottom: 3px solid #2f2F2F;
+}
+
+.container{
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}
+
+.logo{
+    transform: translateX(-110px);
+}
+
+
+
+/*************************************************
+                    BOTTOM MENU 
+**************************************************/
+
+.bottomNavbar{
+    background-color: #fffcd5;
+    border-top: 3px solid #2f2F2F;
+    justify-content: space-evenly !important;
+}

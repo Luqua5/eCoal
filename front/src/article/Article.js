@@ -24,7 +24,7 @@ export default function Article(props) {
 
     // const [tags, setTags] = useState([]);
 
-    let array = [{ "id": 1, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T11:34:08.000000Z", "updated_at": "2023-03-07T11:34:08.000000Z" }, { "id": 2, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:30.000000Z", "updated_at": "2023-03-07T18:41:30.000000Z" }, { "id": 3, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:30.000000Z", "updated_at": "2023-03-07T18:41:30.000000Z" }, { "id": 4, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:30.000000Z", "updated_at": "2023-03-07T18:41:30.000000Z" }, { "id": 5, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:31.000000Z", "updated_at": "2023-03-07T18:41:31.000000Z" }, { "id": 6, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:31.000000Z", "updated_at": "2023-03-07T18:41:31.000000Z" }, { "id": 7, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:31.000000Z", "updated_at": "2023-03-07T18:41:31.000000Z" }]
+    let array = [{ "id": 1, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T11:34:08.000000Z", "updated_at": "2023-03-07T11:34:08.000000Z" }, { "id": 2, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:30.000000Z", "updated_at": "2023-03-07T18:41:30.000000Z" }, { "id": 3, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:30.000000Z", "updated_at": "2023-03-07T18:41:30.000000Z" }, { "id": 4, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:30.000000Z", "updated_at": "2023-03-07T18:41:30.000000Z" }, { "id": 5, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:31.000000Z", "updated_at": "2023-03-07T18:41:31.000000Z" }, { "id": 6, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:31.000000Z", "updated_at": "2023-03-07T18:41:31.000000Z" }, { "id": 7, "title": "Welcome to ecoal23", "content": "<h1>Hello from ecoal<\/h1><p>Nice to see you in <strong>Lens<\/strong>. Enjoy !<\/p>", "thumbnailURL": "\/ecoal.jpg", "mediaType": "image", "mediaURL": "\/ecoal.jpg", "leadStory": 0, "created_at": "2023-03-07T18:41:31.000000Z", "updated_at": "2023-03-07T18:41:31.000000Z" }]
 
 
 
@@ -49,16 +49,18 @@ export default function Article(props) {
     return (
         <>
 
-            {console.log(props.title)}
+            
            
 
             <Row xs={1} md={2} className="g-4 cardArticle">
                     
                     <Col className="mt-5">
                         <Card >
-                            <Card.Img variant="top" src="holder.js/100px160" />
+                            <Card.Img variant="top" src="http://localhost:8000/ecoal.jpg"/>
+                            <Card.Title class="CatDisplay">Category</Card.Title>
+                            <Card.Title>{props.title}</Card.Title>
                             <Card.Body>
-                                <Card.Title>{props.title}</Card.Title>
+                                <Card.Title class="date">03/09/2023</Card.Title>
                                 <Card.Text>
                                     <Link to={`/ArticleDetail/${props.id}`}>
                                         <h1 className="Article_title">{props.content.substr(0,250)}</h1>
