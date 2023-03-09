@@ -15,3 +15,14 @@
     display: flex;
     align-items: center;
 }
+
+
+.dropdown-toggle{
+    width: 150px;
+}
+
+.dd-menu{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
