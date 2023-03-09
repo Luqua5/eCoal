@@ -41,10 +41,14 @@ button{
     font-size: 1.3rem;   
     border-radius: 5px;
     text-transform: uppercase;
+    box-shadow: none;
 }
 
 button:focus{
-    background-color: #52A457;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    
 }
 
 .btn-container{

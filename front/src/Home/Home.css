@@ -18,6 +18,10 @@
 .bottomNavbar .icon {
     max-height: 4vh;
 }
+
+.navbar-toggler:focus{
+    box-shadow: none !important;
+}
   
 .show{
     width: 90vw;

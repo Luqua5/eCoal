@@ -8,6 +8,10 @@ import './EditArticle.css';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+
 export default function EditArticle(props) {
     const navigate = useNavigate();
     const params = useParams();
@@ -79,6 +83,7 @@ export default function EditArticle(props) {
         <>  
             <Header/>
                         <h2 className="Title">Edit Article</h2>
+
                         <Form className="formAdd">
                                         <Form.Control
                                             type="text"
@@ -100,6 +105,7 @@ export default function EditArticle(props) {
                         </Form>
                         <Form className="d-flex searchLeague">
                                     <div className="search">
+
                                         <Form.Control
                                         onChange={SearchLeague}
                                             type="search"
@@ -125,6 +131,7 @@ export default function EditArticle(props) {
 
 
             <Footer/>
+
 
         </>
     );

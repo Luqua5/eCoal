@@ -96,6 +96,7 @@ export default function AddArticle(props) {
                         </Form>
                             <Form className="d-flex searchLeague">
                                     <div className="search">
+
                                         <Form.Control
                                         onChange={SearchLeague}
                                             type="search"
@@ -114,6 +115,7 @@ export default function AddArticle(props) {
                                         </ul>
                                     </div>
                                         
+
                             </Form>
 
                             <button className="publish" onClick={sendData}>   Publish  </button>

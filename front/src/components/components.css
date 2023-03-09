@@ -5,7 +5,12 @@
 .TopNav{
     background-color: #fffcd5;
     border-bottom: 3px solid #2f2F2F;
-    
+    width: 95%;
+    padding-left: 20px;
+}
+
+.navbar-collapse{
+    padding-top: 10px;
 }
 
 .container{

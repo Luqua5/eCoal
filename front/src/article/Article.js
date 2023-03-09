@@ -48,8 +48,9 @@ export default function Article(props) {
                                 <Card.Title class="CatDisplay">{data}</Card.Title>
                                 <Card.Title>{props.title}</Card.Title>
                             </div>
+
                             <Card.Body>
-                                <Card.Title class="date">{props.date}</Card.Title>
+                                <Card.Title class="date">{props.created_at}</Card.Title>
                                 <Card.Text>
                                         <p className="Article_title">{props.content.substr(0, 250)}</p>
 
