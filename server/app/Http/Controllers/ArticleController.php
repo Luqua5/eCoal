@@ -33,7 +33,7 @@ class ArticleController extends Controller
             'title' => 'required|string|max:50',
             'content' => 'required|text',
             'thumbnailURL' => 'required|string',
-            'leadStory' => 'integer',
+            'leadStory' => 'required|integer',
         ]);
 
         if($validatedData->fails()){
@@ -59,7 +59,7 @@ class ArticleController extends Controller
             'title' => 'required|string|max:50',
             'content' => 'required|string',
             'thumbnailURL' => 'required|string',
-            'leadStory' => 'required|integer',
+            'leadStory' => 'integer',
         ]);
         
         $article = new article();
