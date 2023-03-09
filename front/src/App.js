@@ -14,6 +14,8 @@ import {useCookies} from "react-cookie"
 import Ligue1 from './components/Ligue1';
 import ChampionsLeague from './components/ChampionsLeague';
 import AboutUs from './components/AboutUs';
+import Match from './match/Match';
+import MatchDetail from './match/MatchDetail';
 
 //import use cookie
 
@@ -41,7 +43,11 @@ function App() {
         <Route exact={true} path="/Ligue1" element={<Ligue1/>} />
         <Route exact={true} path="/ChampionsLeague" element={<ChampionsLeague/>} />
         <Route exact={true} path="/AboutUs" element={<AboutUs/>} />
+        {/* <Route exact={true} path="/AboutUs" element={<AboutUs/>} /> */}
+        <Route exact={true} path="/Match" element={<Match/>} />
+        <Route exact={true} path="/MatchDetail" element={<MatchDetail/>} />
 
+        
       </Routes>
 
       <footer className="footer"></footer>

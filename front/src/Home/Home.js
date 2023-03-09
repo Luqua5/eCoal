@@ -182,7 +182,7 @@ export default function Home(props) {
                                 </Form>
                                 <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="/Login">Log In</Nav.Link>
-                                <Nav.Link href="/Login">About Us</Nav.Link>
+                                <Nav.Link href="/AboutUs">About Us</Nav.Link>
                                 <NavDropdown title="Leagues" id="basic-nav-dropdown" className="navBar">
                                     <Form className="d-flex">
                                         <Form.Control
@@ -216,6 +216,13 @@ export default function Home(props) {
 
                 {selectedData.length ? selectedData.map(n => <Article key={n.id} id={n.id} title={n.title} content={n.content} thumbnail={n.thumbnail}></Article>) : <div>LOADING</div>}
 
+                <Footer />
+                {/* <Navbar bg="light" fixed="bottom" className="bottomNavbar">
+          
+                <Nav.Link href="/"> <img className="homeIcon icon" src={home}/> </Nav.Link>
+                <Nav.Link href="/LiveFixture"> <img className="homeStreaming icon" src={streaming}/> </Nav.Link>
+                <Nav.Link href="/User"> <img className="homeProfil icon" src={profil}/> </Nav.Link>
+                <button onClick={logout}>Logout</button>
 
                 <Navbar bg="light" fixed="bottom" className="bottomNavbar">
 
