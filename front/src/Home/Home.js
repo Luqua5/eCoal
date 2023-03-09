@@ -144,7 +144,7 @@ export default function Home(props) {
                 <Navbar  expand="lg" className="navBar">
                     <Container>
                         <Navbar.Brand href="#home">
-                            <image className="logo" src="/image/logo_txt.png" />
+                            <img className="logo-nav" src="/image/logo_txt.png" />
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">

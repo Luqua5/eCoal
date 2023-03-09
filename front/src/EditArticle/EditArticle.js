@@ -5,6 +5,10 @@ import "./EditArticle.css";
 import { Form, Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+
 export default function EditArticle(props) {
     const navigate = useNavigate();
     const params = useParams();
@@ -61,7 +65,9 @@ export default function EditArticle(props) {
 
     return (
         <>
-                        <h1>Edit Article</h1>
+
+        <Header />
+                        <h1 className="Title">Edit Article</h1>
                         <Form className="formAdd">
                                         <Form.Control
                                             type="text"
@@ -80,7 +86,7 @@ export default function EditArticle(props) {
                                         <input type="file" id="thumbnailURL" name="thumbnailURL" className="thumbnailURL" /> 
                                     
                         </Form>
-                            <Form className="d-flex">
+                            <Form className="search-form">
                                         <Form.Control
                                             type="search"
                                             placeholder="Search by league"
@@ -92,15 +98,16 @@ export default function EditArticle(props) {
                                             <img
                                                 className="searchIcon"
                                                 alt="Button image"
+                                                src="/image/search.png"
                                             />
                                         </Button>
                             </Form>
 
-                            <button onClick={sendData}>   Publish  </button>
+                            <button className="publish" onClick={sendData}>   Publish  </button>
 
 
 
-
+<Footer/>
 
         </>
     );

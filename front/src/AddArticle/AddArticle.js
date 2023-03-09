@@ -80,7 +80,7 @@ export default function AddArticle(props) {
                                         <input type="file" id="thumbnailURL" name="thumbnailURL" className="thumbnailURL" /> 
                                     
                         </Form>
-                            <Form className="d-flex">
+                            <Form className="search-form">
                                         <Form.Control
                                             type="search"
                                             placeholder="Search by league"
@@ -88,7 +88,7 @@ export default function AddArticle(props) {
                                             className="me-2"
                                             aria-label="Search"
                                         />
-                                        <Button className="search" variant="outline-secondary" onClick={SearchLeague}>
+                                        <Button className="search"  onClick={SearchLeague}>
                                             <img
                                                 className="searchIcon"
                                                 alt="Button image"

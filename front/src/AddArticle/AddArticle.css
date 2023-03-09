@@ -6,9 +6,10 @@
     margin: 0 auto;
     height: 150px;
     justify-content: space-evenly;
+    font-family: Poppins;
 }
 
-.d-flex{
+.search-form{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -27,4 +28,37 @@
 .search{
     outline: none;
     border: solid 1px #2F2F2F;
+    background-color: transparent;
+}
+
+.formAdd input{
+    border:none;
+    border-bottom: solid 1px #2F2F2F;
+    background-color: transparent;
+    border-radius: 0px;
+}
+
+.formAdd input:focus{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.formAdd input::placeholder{
+    color: #2F2F2F;
+    transition: all .2s ease;
+}
+
+.formAdd input:focus::placeholder{
+    opacity: 0;
+}
+
+
+.formAdd input[type="file"]{
+    border:none;
+}
+
+#file-upload-button{
+    background-color: transparent;
+
 }
