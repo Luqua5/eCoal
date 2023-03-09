@@ -11,6 +11,17 @@ import streaming from "../image/streaming.png";
 import profil from "../image/profil.png";
 
 
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Form from 'react-bootstrap/Form';
+
+import Button from 'react-bootstrap/Button';
+
+
+
+
 
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -67,8 +78,7 @@ export default function Home(props) {
     
     }
 
-        props.removeCookie("mycookie")
-    }
+
 
   return (
     <>
@@ -77,7 +87,7 @@ export default function Home(props) {
         <Navbar bg="light" expand="lg">
           <Container>
             <Navbar.Brand href="#home">
-              <img className="logo" src={logo} />
+              hello
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -93,7 +103,7 @@ export default function Home(props) {
                   <Button variant="outline-secondary" onClick={SearchFilter}>
                     <img
                       className="searchIcon"
-                      src={search}
+                    //   src={search}
                       alt="Button image"
                     />
                   </Button>
