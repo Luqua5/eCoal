@@ -31,21 +31,29 @@ class ArticleController extends Controller
     public function addArticle(Request $request){
         $validatedData = $request->validate([
             'title' => 'required|string|max:50',
-            'content' => 'required|text',
-            'thumbnailURL' => 'required|string',
+            'content' => 'required|string',
+            'thumbnailURL' => 'required',
+            'league_id' => 'required|integer',
             'leadStory' => 'integer',
         ]);
 
-        if($validatedData->fails()){
-            return response()->json(['message' => 'Validation failed']);
-        }
+        //return response()->json($request->file('thumbnailURL'));
         
+        $f = $request->file('thumbnailURL')->hashName();
+        
+        $request->file('thumbnailURL')->storeAs('upload', $f);
+        $validatedData['thumbnailURL'] = $f;
+
         $article = new article();
 
         $article->title = $validatedData['title'];
         $article->content = $validatedData['content'];
         $article->thumbnailURL = $validatedData['thumbnailURL'];
-        $article->leadStory = $validatedData['leadStory'];
+        $article->league_id = $validatedData['league_id'];
+        if(isset($validatedData['leadStory'])){
+            $article->leadStory = $validatedData['leadStory'];
+        }
+        
 
         $article->save();
 
