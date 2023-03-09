@@ -61,7 +61,7 @@ export default function Home(props) {
         }).then((response) => {
             console.log(response)
         });
-      props.removeCookie("mycookie")
+        props.removeCookie("mycookie")
   }
 
 
