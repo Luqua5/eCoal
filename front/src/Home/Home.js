@@ -6,7 +6,7 @@ import axios from "axios";
 import Article from "../article/Article";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Header from './Header';
+// import Header from './Header';
 
 import home from "../image/home.png";
 import streaming from "../image/streaming.png";
