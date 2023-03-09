@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import Article from "../article/Article";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Header from './Header';
 
 import home from "../image/home.png";
@@ -89,6 +91,22 @@ export default function Home(props) {
         });
         props.removeCookie("mycookie")
     }
+
+
+    function SearchFilter() {
+        let searchValue = document.getElementById('search').value;
+        console.log(searchValue)
+        //    console.log(data.filter(article => article.title.includes("ecoal")))
+        // const [searchTerm, setSearchTerm] = useState("");
+        // console.log("HALOO" + data.filter(article => article.title.toUpperCase().includes("TEST")))
+        let newArray = data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase()));
+        console.log(newArray)
+        setSelectedData(data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase())));
+
+
+    }
+
+
 
 
     function SearchFilter() {
