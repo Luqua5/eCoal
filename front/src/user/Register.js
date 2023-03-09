@@ -53,9 +53,9 @@ export default function Register( props ) {
         //                         setError("Account created")
         //                         setNavigate(true)
         //                     }
-        if(data){
-            setNavigate(true)
-        }
+        // if(data){
+        //     setNavigate(true)
+        // }
 
 
     }
