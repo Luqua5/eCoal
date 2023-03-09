@@ -16,7 +16,6 @@ import logo from "../image/final_red_1.png";
 import search from "../image/search.png";
 
 import Form from "react-bootstrap/Form";
-import {useCookies} from "react-cookie"
 
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -44,16 +43,16 @@ export default function Home(props) {
 
   async function logout(){
 
-      // axios({
-      //   method: 'get',
-      //   url: 'http://localhost:8000/api/logout',
-      //   headers: {
-      //     'Authorization': 'Bearer ' + props.cookie.cookie.token,
-      //     'Content-Type': 'application/json'
-      //   }
-      // }).then((response) => {
-      //    console.log(response)
-      //  });
+       axios({
+         method: 'get',
+         url: 'http://localhost:8000/api/logout',
+         headers: {
+           'Authorization': 'Bearer ' + props.cookie.mycookie.token,
+           'Content-Type': 'application/json'
+         }
+       }).then((response) => {
+          console.log(response)
+        });
       props.removeCookie("mycookie")
   }
 

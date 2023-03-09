@@ -4,7 +4,7 @@ import { Navigate } from 'react-router'
 import { useCookies } from "react-cookie";
 
 // import { Header } from "../header/Header";
-export default function Register( setCookie ) {
+export default function Register( props ) {
     const [error, setError] = useState('');
     const[navigate, setNavigate] = useState(false)
 
@@ -39,7 +39,7 @@ export default function Register( setCookie ) {
             .then(response => {
             setError("Account Created");
             console.log(response.data.access_token);
-            setCookie("mycookie", { name: name, token: response.data.access_token }, "/");
+            props.setCookie("mycookie", { name: name, token: response.data.access_token }, "/");
             
             })
             .catch(error => {

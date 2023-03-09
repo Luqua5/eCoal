@@ -4,7 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useCookies, withCookies } from "react-cookies";
 // import "./user/Login.css";
 // import { Header } from "./header/Header";
-export default function Login(setCookie) {
+export default function Login(props) {
 
 
     function loginUser(e){
@@ -12,7 +12,7 @@ export default function Login(setCookie) {
         axios.post(`http://localhost:8000/api/login`, {email: document.getElementById("email").value, password: document.getElementById("password").value })
             .then(response => {
             console.log(response);
-            setCookie("mycookie", {token: response.data.access_token }, "/");
+            props.setCookie("mycookie", { name: response.data.name, token: response.data.access_token }, "/");
             
             })
             .catch(error => {
