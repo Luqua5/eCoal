@@ -2,6 +2,7 @@
     height: 100% !important;
     width: 100% !important;
     font-family: Poppins !important;
+    font-size: 1.2rem;
 }
 
 #wg-api-football-games .wg_active{
@@ -14,4 +15,13 @@
 
 .wg-dropdown-color-select{
     background-color: #52A457 !important;
+}
+
+.wg_header{
+    background-color: #52A457 !important;
+    color: white !important;
+}
+
+.wg_info{
+    background-color: #2F2F2F !important;
 }
