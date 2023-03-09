@@ -66,9 +66,8 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:50',
             'content' => 'required|string',
-            'thumbnailURL' => 'required',
-            'league_id' => 'required|integer',
-            'leadStory' => 'integer',
+            'thumbnailURL' => 'required|string',
+            'leadStory' => 'required|integer',
         ]);
 
         $f = $request->file('thumbnailURL')->hashName();

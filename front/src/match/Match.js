@@ -1,7 +1,11 @@
 // import "./Home.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./Match.css";
 
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 import Card from 'react-bootstrap/Card';
@@ -53,7 +57,9 @@ export default function Match() {
 
     return (
         <>
-            <div>
+
+        <Header />
+            <div className="match">
                 {console.log(data)}
                 {data.length ? data.map(n => <MatchDetail
                     away={n.teams.away.name}
@@ -63,7 +69,7 @@ export default function Match() {
                     logoAway={n.teams.away.logo}
                     logoHome={n.teams.home.logo} ></MatchDetail>) : <div>LOADING</div>}
             </div>
-
+            <Footer/>
         </>
     );
 }

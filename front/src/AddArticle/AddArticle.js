@@ -4,6 +4,9 @@ import axios from "axios";
 import "./AddArticle.css";
 import { Form, Button } from "react-bootstrap";
 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 export default function AddArticle(props) {
     
     const [league, setLeague] = useState([]);
@@ -56,6 +59,9 @@ export default function AddArticle(props) {
 
     return (
         <>
+        <Header/>
+
+        <h2 className="Title">Add an article</h2>
                         <Form className="formAdd">
                                         <Form.Control
                                             type="text"
@@ -82,19 +88,20 @@ export default function AddArticle(props) {
                                             className="me-2"
                                             aria-label="Search"
                                         />
-                                        <Button variant="outline-secondary" onClick={SearchLeague}>
+                                        <Button className="search" variant="outline-secondary" onClick={SearchLeague}>
                                             <img
                                                 className="searchIcon"
                                                 alt="Button image"
+                                                src="/image/search.png"
                                             />
                                         </Button>
                             </Form>
 
-                            <button onClick={sendData}>   Publish  </button>
+                            <button className="publish" onClick={sendData}>   Publish  </button>
 
 
 
-
+<Footer/>
 
         </>
     );

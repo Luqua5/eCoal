@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ArticleDetail";
 import "./Article.css";
- 
+
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -52,11 +52,11 @@ export default function Article(props) {
     return (
         <>
 
-            
-           
 
-            <Row xs={1} md={2} className="g-4 cardArticle">
-                    
+
+            <div className="article">
+                <Row xs={1} md={2} className="g-4 cardArticle">
+
                     <Col className="mt-5">
                         <Card >
                             <Card.Img variant="top" src={`http://localhost:8000/${props.thumbnail}`}/>
@@ -66,7 +66,7 @@ export default function Article(props) {
                                 <Card.Title class="date">{props.date}</Card.Title>
                                 <Card.Text>
                                     <Link to={`/ArticleDetail/${props.id}`}>
-                                        <h1 className="Article_title">{props.content.substr(0,250)}</h1>
+                                        <h1 className="Article_title">{props.content.substr(0, 250)}</h1>
                                     </Link>
 
                                 </Card.Text>
@@ -76,9 +76,9 @@ export default function Article(props) {
 
                 </Row>
 
+            </div>
 
 
-           
 
 
 

@@ -1,0 +1,17 @@
+#wg-api-football-games{
+    height: 100% !important;
+    width: 100% !important;
+    font-family: Poppins !important;
+}
+
+#wg-api-football-games .wg_active{
+    background-color: #52A457 !important;
+}
+
+.wg-dropbtn{
+    background-color: #52A457 !important;
+}
+
+.wg-dropdown-color-select{
+    background-color: #52A457 !important;
+}
