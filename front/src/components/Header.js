@@ -6,10 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../image/final_red_1.png';
 import search from '../image/search.png';
-
 import Form from 'react-bootstrap/Form';
-
-import Ligue1 from './Ligue1';
 
 function Header() {
   return (
@@ -35,7 +32,7 @@ function Header() {
                                 </NavDropdown>
                                 <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="/Login">Log In</Nav.Link>
-                                <Nav.Link href="/Login">About Us</Nav.Link>
+                                <Nav.Link href="/AboutUs">About Us</Nav.Link>
 
                             </Nav>
                         </Navbar.Collapse>
