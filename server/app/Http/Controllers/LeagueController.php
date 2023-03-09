@@ -26,4 +26,11 @@ class LeagueController extends Controller
         $theLeagues = $league->leagueByType($type)->toJson();
         return response()->json($theLeagues);
     }
+
+    public function leagueByID($id)
+    {
+        $league = new league();
+        $theLeagues = $league->leagueByID($id)->toJson();
+        return response()->json($theLeagues);
+    }
 }

@@ -45,6 +45,9 @@ export default function Article(props) {
 
 
     // {props.content.substr(0,250)}
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/league/${props.league_id}`)
+    }, []);
 
     return (
         <>
@@ -56,11 +59,11 @@ export default function Article(props) {
                     
                     <Col className="mt-5">
                         <Card >
-                            <Card.Img variant="top" src="http://localhost:8000/ecoal.jpg"/>
+                            <Card.Img variant="top" src={`http://localhost:8000/${props.thumbnail}`}/>
                             <Card.Title class="CatDisplay">Category</Card.Title>
                             <Card.Title>{props.title}</Card.Title>
                             <Card.Body>
-                                <Card.Title class="date">03/09/2023</Card.Title>
+                                <Card.Title class="date">{props.date}</Card.Title>
                                 <Card.Text>
                                     <Link to={`/ArticleDetail/${props.id}`}>
                                         <h1 className="Article_title">{props.content.substr(0,250)}</h1>
