@@ -28,13 +28,13 @@ export default function Match() {
     //make a get request to localhost:8000/test with axios
 
     const [data, setData] = useState([...new Set]);
-    const [league, setLeague] = useState([]);
+    const [league, setLeague] = useState([...new Set]);
     const [season, setSeason] = useState([...new Set]);
-    const [selectedData, setSelectedData] = useState([]);
+    const [selectedData, setSelectedData] = useState([...new Set]);
 
     useEffect(() => {
         getFixture2022();
-        getFixture2021();
+        // getFixture2021();
         console.log("test")
     }, []);
 
@@ -78,6 +78,7 @@ export default function Match() {
             setSelectedData(response.data.response)
             // setLeague(response.data.league.name)
             const leagues = [...new Set(response.data.response.map(data=> data.league.name))]; // Get unique genders from the data
+            leagues.unshift("All League")
             setLeague(leagues)
             const seasons = [...new Set(response.data.response.map(data=> (data.league.season)))]; // Get unique genders from the data
             // console.log(seasons)
@@ -87,16 +88,15 @@ export default function Match() {
         }).catch(function (error) {
             console.error(error);
         });
-    }
 
-    async function getFixture2021() {
         axios.request(options2).then(function (response) {
             //   console.log(response.data);
             setData(data.concat(response.data.response))
             setSelectedData(data.concat(response.data.response))
 
             // setLeague(response.data.league.name)
-            const leagues = [...new Set(response.data.response.map(data=> data.league.name))]; // Get unique genders from the data
+            const leagues = [...new Set(response.data.response.map(data=> data.league.name))];
+            leagues.unshift("All League") // Get unique genders from the data
             setLeague(league.concat(leagues))
             const seasons = [...new Set(response.data.response.map(data=> (data.league.season)))]; // Get unique genders from the data
             // console.log(season)
@@ -108,26 +108,66 @@ export default function Match() {
         });
     }
 
+    // async function getFixture2021() {
+    //     axios.request(options2).then(function (response) {
+    //         //   console.log(response.data);
+    //         setData(data.concat(response.data.response))
+    //         setSelectedData(data.concat(response.data.response))
 
-    // async function SearchMatchByLeague(n) {
-    //     // let teamId = document.getElementById('searchLeague').value;
-    //     console.log("activated")
-    //     let newArray = data.filter(x => x.league_id === n);
-    //     console.log(newArray)
-    //     setSelectedData(newArray)
+    //         // setLeague(response.data.league.name)
+    //         const leagues = [...new Set(response.data.response.map(data=> data.league.name))];
+    //         leagues.unshift("All League") // Get unique genders from the data
+    //         setLeague(league.concat(leagues))
+    //         const seasons = [...new Set(response.data.response.map(data=> (data.league.season)))]; // Get unique genders from the data
+    //         // console.log(season)
+    //         // console.log(seasons)
+    //         setSeason(season.concat(seasons))
 
-
-    //     setSelectedData(selectedData.filter(x => x.league_id === selectedID));  
-
-    //     console.log(newArray)
-    //     setSelectedLeague(league.filter(x => x.name.toUpperCase().includes(searchValue.toUpperCase())));
-
+    //     }).catch(function (error) {
+    //         console.error(error);
+    //     });
     // }
+
+
+    async function SearchMatchByLeague(n) {
+        // let teamId = document.getElementById('searchLeague').value;
+        if(n.includes( "All League")){
+            console.log("all league")
+            console.log(data)
+           setSelectedData(data)
+        }else{
+        console.log(n)
+        let newArray = data.filter(x => x.league.name.includes(n) );
+        console.log(newArray)
+        setSelectedData(newArray)}
+
+
+        // setSelectedData(selectedData.filter(x => x.league_id === n));  
+
+        // console.log(newArray)
+        // setSelectedLeague(league.filter(x => x.name.toUpperCase().includes(searchValue.toUpperCase())));
+
+
+    }
+
+    async function SearchMatchBySeason(n) {
+        // let teamId = document.getElementById('searchLeague').value;
+        console.log(n)
+        let newArray = data.filter(x => x.league.season === n );
+        console.log(newArray)
+        setSelectedData(newArray)
+
+
+        // setSelectedData(selectedData.filter(x => x.league_id === n));  
+
+        // console.log(newArray)
+        // setSelectedLeague(league.filter(x => x.name.toUpperCase().includes(searchValue.toUpperCase())));
+    }
 
 
     return (
         <>
-        {console.log(selectedData)}
+        {console.log(data)}
         {console.log(season)}
         <Header></Header>
         <Dropdown>
@@ -136,7 +176,7 @@ export default function Match() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-      {season.length ? season.map(n => <Dropdown.Item key={n}>{n} </Dropdown.Item>) : <div>LOADING</div>}
+      {season.length ? season.map(n => <Dropdown.Item  onClick={() => {{SearchMatchBySeason(n)}}}>{n} </Dropdown.Item>) : <div>LOADING</div>}
       {/* <Dropdown.Item key="1">2021 </Dropdown.Item>
       <Dropdown.Item key="2">2022 </Dropdown.Item> */}
       </Dropdown.Menu>
@@ -148,7 +188,8 @@ export default function Match() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-      {league.length ? league.map(n => <Dropdown.Item key={n}>{n} </Dropdown.Item>) : <div>LOADING</div>}
+        
+      {league.length ? league.map(n => <Dropdown.Item onClick={() => {{SearchMatchByLeague(n)}}}>{n} </Dropdown.Item>) : <div>LOADING</div>}
       {/* <Dropdown.Item key="1">2021 </Dropdown.Item>
       <Dropdown.Item key="2">2022 </Dropdown.Item> */}
       </Dropdown.Menu>
@@ -157,7 +198,7 @@ export default function Match() {
 
             <div className="match">
                 
-                {data.length ? data.map(n => <MatchDetail
+                {selectedData.length ? selectedData.map(n => <MatchDetail
                 
                     away={n.teams.away.name}
                     home={n.teams.home.name}
