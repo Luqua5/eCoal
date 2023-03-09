@@ -33,21 +33,23 @@ export default function Login(props) {
                         
                     <form className="login-form" onSubmit={(e) => loginUser(e)}>
                         <div className="form-group">
-                            <label>Username</label>
+                            
                             <input
                                 type="text"
                                 id="email"
                                 name="email"
                                 autoComplete="off"
+                                placeholder="Email"
                             />
                         </div>
                         <div className="form-group">
-                            <label>Password</label>
+                            
                             <input
                                 type="password"
                                 name="password"
                                 id="password"
                                 autoComplete="off"
+                                placeholder="Password"
                             />
                         </div>
                         <div className="form-group">
@@ -61,12 +63,14 @@ export default function Login(props) {
                         <button className="btn-block rounded" type="submit" name="login">
                             Login
                         </button>
+                        
                         <a
                             href="/Register"
-                            className="float-right btn btn-outline-primary"
+                            className="float-right btn btn-outline-primary btn-signup"
                         >
                             Sign up
                         </a>
+                        
                     </form>
                 </article>
             </div>

@@ -1,11 +1,9 @@
 .signup{
     display: flex;
     justify-content: space-evenly;
-    padding: 20px;
 }
 
 .login-form{
-    border: solid 1px black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,12 +20,39 @@
     transition: all .3s ease;
 }
 
+
+.login-img{
+    max-width: 100%;
+    height: 300px;
+}
+
 .login-form input:focus{
     outline: none;
-    background-color: #fffcd5;
+    
+}
+
+.login-form input:focus::placeholder{
+    opacity: 0;
 }
 
 
-.login-form label{
-    position: absolute;
+.login-form input::placeholder{
+    color: #2F2F2F;
+    transition: all .2s ease;
+}
+
+.btn-signup{
+    color: white;
+    font-family: Poppins;
+    background-color: #2F2F2F;
+    width: 100px;
+    height: 50px;
+    outline: none;
+    font-size: 1.2rem;   
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.register{
+    width: 200px;
 }
