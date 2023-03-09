@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Navigate } from 'react-router'
 import { useCookies } from "react-cookie";
+import Footer from '../components/Footer';
+import "../Login/Login.css";
 
 // import { Header } from "../header/Header";
 export default function Register( props ) {
@@ -63,34 +65,33 @@ export default function Register( props ) {
 
     return (
         <><div className="container2">
+            <img className="login-img" src="/image/logo_txt.png" />
             {navigate ? (<Navigate to={"/Login"}/>) : null}
             <div className="card">
                 <article className="card-body">
-                    <a href="Login" className="float-right btn btn-outline-primary">Sign in</a>
-                    <h4 className="card-title mb-4 mt-1">Sign up</h4>
+                    
                     {/* <div className="register"> */}
-                    <h1>Register</h1>
-                    <form>
+                    <h1 className="Title">Register</h1>
+                    <form className="login-form">
                     <div className="form-group">
-                            <label>Email</label>
-                            <input type="text" id="email" />
+                            <input type="text" placeholder="email" id="email" />
                         </div>
                         <div className="form-group">
-                            <label>Username</label>
-                            <input type="text" id="name" />
+                            
+                            <input type="text" placeholder="Username" id="name" />
                         </div>
                         <div className="form-group">
-                            <label>Password</label>
-                            <input type="password" id="password" />
+                            <input type="password" placeholder="Password" id="password" />
                         </div>
                         <div className="form-group">
-                            <label>Confirm password</label>
-                            <input type="password" id="confirmPassword" />
+                            <input type="password" placeholder="Confirm Password" id="confirmPassword" />
                         </div>
-                        <button onClick={(e) => registerUser(e)}>Register</button>
+                        <button className="register" onClick={(e) => registerUser(e)}>Register</button>
                         <h3>{error}</h3>
                     </form>
                 </article>
-            </div></div></>
+            </div></div>
+            <Footer />
+            </>
     )
 }
