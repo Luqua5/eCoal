@@ -14,23 +14,25 @@ import Footer from '../components/Footer';
 export default function Home(props) {
     //make a get request to localhost:8000/test with axios
 
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
     const [selectedData, setSelectedData] = useState([]);
+  const [selectedData, setSelectedData] = useState([]);
 
     useEffect(() => {
         getArticles();
     }, []);
 
-    async function getArticles() {
-        // The function is asynchronous
-        const articles = JSON.parse(
-            (await axios.get("http://localhost:8000/api/article")).data
-        );
-        // console.log(articles)
-        setData(articles);
+  async function getArticles() {
+    // The function is asynchronous
+    const articles = JSON.parse(
+      (await axios.get("http://localhost:8000/api/article")).data
+    );
+    // console.log(articles)
+    setData(articles);
         setSelectedData(articles)
-        // console.log(data)
-    }
+    setSelectedData(articles)
+    // console.log(data)
+  }
 
     async function logout() {
 
@@ -44,8 +46,8 @@ export default function Home(props) {
         }).then((response) => {
             console.log(response)
         });
-        props.removeCookie("mycookie")
-    }
+      props.removeCookie("mycookie")
+  }
 
 
     function SearchFilter() {
@@ -59,6 +61,22 @@ export default function Home(props) {
         setSelectedData(data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase())));
 
 
+    }
+
+
+
+
+  function SearchFilter(){
+   let searchValue = document.getElementById('search').value;
+   console.log(searchValue)
+//    console.log(data.filter(article => article.title.includes("ecoal")))
+    // const [searchTerm, setSearchTerm] = useState("");
+    // console.log("HALOO" + data.filter(article => article.title.toUpperCase().includes("TEST")))
+     let newArray = data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase()));
+     console.log(newArray)
+    setSelectedData(data.filter(article => article.title.toUpperCase().includes(searchValue.toUpperCase())));
+    
+    
     }
 
 
@@ -89,6 +107,7 @@ export default function Home(props) {
                 {/* <div className='articles mt-5'>
                 <Article></Article>
                 </div> */}
+                <button onClick={logout}>Logout</button>
             </div>
         </>
     );
