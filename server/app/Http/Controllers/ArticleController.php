@@ -37,7 +37,7 @@ class ArticleController extends Controller
             'leadStory' => 'integer',
         ]);
 
-        //return response()->json($request->file('thumbnailURL'));
+        
         
         $f = $request->file('thumbnailURL')->hashName();
         
@@ -66,9 +66,16 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:50',
             'content' => 'required|string',
-            'thumbnailURL' => 'required|string',
-            'leadStory' => 'required|integer',
+            'thumbnailURL' => 'required',
+            'league_id' => 'required|integer',
+            'leadStory' => 'integer',
         ]);
+
+        $f = $request->file('thumbnailURL')->hashName();
+        
+        $request->file('thumbnailURL')->storeAs('upload', $f);
+        $validatedData['thumbnailURL'] = $f;
+
         
         $article = new article();
 

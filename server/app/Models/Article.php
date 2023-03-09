@@ -31,7 +31,7 @@ class Article extends Model
             'title' => $validatedData['title'],
             'content' => $validatedData['content'],
             'thumbnailURL' => $validatedData['thumbnailURL'],
-            'leadStory' => $validatedData['leadStory']
+            'league_id' => $validatedData['league_id']
         ]);
     }
 }
