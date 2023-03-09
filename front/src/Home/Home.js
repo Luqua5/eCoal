@@ -9,7 +9,6 @@ import Footer from '../components/Footer';
 // import Header from './Header';
 
 
-
 // import logo from "../image/profil.png";
 
 
@@ -145,7 +144,7 @@ export default function Home(props) {
                 <Navbar bg="light" expand="lg" className="navBar">
                     <Container>
                         <Navbar.Brand href="#home">
-                            <image className="logo" src={logo} />
+                            <image className="logo" src="/image/logo_txt.png" />
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
@@ -161,7 +160,7 @@ export default function Home(props) {
                                     <Button variant="outline-secondary" onClick={SearchFilter}>
                                         <img
                                             className="searchIcon"
-                                            src={search}
+                                            src="/image/search.png"
                                             alt="Button image"
                                         />
                                     </Button>
@@ -181,7 +180,7 @@ export default function Home(props) {
                                         <Button variant="outline-secondary" onClick={SearchLeague}>
                                             <img
                                                 className="searchIcon"
-                                                src={search}
+                                                src="/image/search.png"
                                                 alt="Button image"
                                             />
                                         </Button>
@@ -205,9 +204,9 @@ export default function Home(props) {
 
                 <Navbar bg="light" fixed="bottom" className="bottomNavbar">
 
-                    <Nav.Link href="/"> <img className="homeIcon icon" src={home} /> </Nav.Link>
-                    <Nav.Link href="/LiveFixture"> <img className="homeStreaming icon" src={streaming} /> </Nav.Link>
-                    <Nav.Link href="/User"> <img className="homeProfil icon" src={profil} /> </Nav.Link>
+                    <Nav.Link href="/"> <img className="homeIcon icon" src="/image/home.png " /> </Nav.Link>
+                    <Nav.Link href="/LiveFixture"> <img className="homeStreaming icon" src="/image/streaming.png" /> </Nav.Link>
+                    <Nav.Link href="/User"> <img className="homeProfil icon" src="/image/profil.png" /> </Nav.Link>
                     <button onClick={logout}>Logout</button>
 
 
