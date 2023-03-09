@@ -13,7 +13,7 @@ import User from "./user/User";
 import {useCookies} from "react-cookie"
 import Ligue1 from './components/Ligue1';
 import ChampionsLeague from './components/ChampionsLeague';
-
+import AboutUs from './components/AboutUs';
 
 //import use cookie
 
@@ -40,6 +40,8 @@ function App() {
         <Route exact={true} path="/User" element={<User cookie={cookies}/>} />
         <Route exact={true} path="/Ligue1" element={<Ligue1/>} />
         <Route exact={true} path="/ChampionsLeague" element={<ChampionsLeague/>} />
+        <Route exact={true} path="/AboutUs" element={<AboutUs/>} />
+
       </Routes>
 
       <footer className="footer"></footer>

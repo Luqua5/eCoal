@@ -20,11 +20,7 @@
 }
   
 
-
-.cardArticle{
-    background-color: #fffcd5;
-}
-.card{
-    background-color: #fffcd5 !important;
-    border:none !important;
-}
+.navBar{
+    max-height: 60vh;
+    overflow-y: auto;
+  }
