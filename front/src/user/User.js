@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./User.css";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -65,7 +65,7 @@ export default function User(props) {
               <p> Your name : {props.cookie?.mycookie?.name} </p>
               <p> Your email address : {user.email} </p>
               <p> Your password : ******** </p>
-              
+                <Link className="linkAdd" to="/addArticle">Add article</Link>
               <button className="logout" onClick={logout}>Logout</button>
             </div>
             <Footer/>
