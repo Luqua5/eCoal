@@ -1,6 +1,7 @@
 import "./Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 import Article from "../article/Article";
@@ -108,8 +109,9 @@ export default function Home(props) {
             <div>
                 <Navbar  expand="lg" className="navBar">
                     <Container>
-                        <Navbar.Brand href="#home"><img className="logo-nav" src="/image/logo_txt.png" /></Navbar.Brand>
-
+                        <Link to="/">
+                            <Navbar.Brand href="#home"><img className="logo-nav" src="/image/logo_txt.png" /></Navbar.Brand>
+                        </Link>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">

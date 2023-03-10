@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "./components.css"
+import { Link } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
 
@@ -13,7 +14,9 @@ function Header() {
     <header>
      <Navbar className="TopNav" expand="lg">
                     <Container>
+                    <Link to="/">
                         <Navbar.Brand href="#home"><img className="logo-nav" src="/image/logo_txt.png" /></Navbar.Brand>
+                    </Link>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
