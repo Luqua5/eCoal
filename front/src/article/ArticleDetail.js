@@ -65,7 +65,7 @@ export default function ArticleDetail(props) {
 
 
 
-            <div>
+            <div className="articleView">
 
                 {data.length ? <div>
                     <div className="Title">{data[0].title}</div>

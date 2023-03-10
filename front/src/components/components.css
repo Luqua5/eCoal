@@ -6,6 +6,10 @@
     background-color: #fffcd5;
     border-bottom: 3px solid #2f2F2F;
     padding-left: 20px;
+    position: fixed !important;
+    display: flex !important;
+    width: 100% !important;
+    top: 0;
 }
 
 .navbar-collapse{

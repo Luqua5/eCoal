@@ -3,6 +3,8 @@
     width: 100% !important;
     font-family: Poppins !important;
     font-size: 1.2rem;
+    padding-top: 110px !important;
+    z-index: 1000 !important;
 }
 
 #wg-api-football-games .wg_active{
