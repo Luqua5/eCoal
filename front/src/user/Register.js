@@ -39,7 +39,6 @@ export default function Register( props ) {
     return (
         <><div className="container2">
             <img className="login-img" src="/image/logo_txt.png" />
-            {navigate ? (<Navigate to={"/Login"}/>) : null}
             <div className="card">
                 <article className="card-body">
                     
