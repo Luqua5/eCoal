@@ -48,10 +48,10 @@ function App() {
 
       <Routes>
         <Route exact={true} path="/" element={<Home cookie={cookies} removeCookie={removeCookie}/>} />
-        <Route exact={true} path="/ArticleDetail/:id" element={<ArticleDetail/>} />
+        <Route exact={true} path="/ArticleDetail/:id" element={<ArticleDetail cookie={cookies} />} />
         <Route exact={true} path="/Article" element={<Article/>} />
-        <Route exact={true} path="/AddArticle" element={<AddArticle/>} />
-        <Route exact={true} path="/EditArticle/:id" element={<EditArticle/>} />
+        <Route exact={true} path="/AddArticle" element={<AddArticle cookie={cookies}/>} />
+        <Route exact={true} path="/EditArticle/:id" element={<EditArticle cookie={cookies}/>} />
         <Route exact={true} path="/Login" element={<Login setCookie={setCookie}/>} />
         <Route exact={true} path="/Register" element={<Register setCookie={setCookie}/>} />
         <Route exact={true} path="/LiveFixture" element={<LiveFixture/>} />

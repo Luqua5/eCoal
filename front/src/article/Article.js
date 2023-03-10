@@ -31,7 +31,6 @@ export default function Article(props) {
             setData(res[0].name);
         });
     }, []);
-    console.log(props);
     return (
         <>
 
@@ -44,6 +43,7 @@ export default function Article(props) {
                     <Col className="mt-5">
                         <Card >
                             <div className="thumbnail">
+                                <div className="gradient"> </div>
                                 <Card.Img variant="top" src={`http://localhost:8000/storage/upload/${props.thumbnail}`}/>
                                 <Card.Title class="CatDisplay">{data}</Card.Title>
                                 <Card.Title>{props.title}</Card.Title>

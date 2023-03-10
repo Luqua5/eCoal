@@ -31,16 +31,17 @@ Route::get('/league/{id}', [LeagueController::class,'LeagueById']);
 
 Route::get('/article', [ArticleController::class,'article']);
 
-Route::get('/article/{id}', [ArticleController::class,'articleById']);
 Route::delete('/article/{id}', [ArticleController::class,'deleteArticle']);             
 Route::post('/article', [ArticleController::class,'addArticle']);             
 Route::post('/article/{id}', [ArticleController::class,'updateArticle']);
 
 
+Route::get('/article/{id}', [ArticleController::class,'articleById']);
 
 Route::group([
     'middleware' => 'auth:sanctum',
 ], function () {
+    
     Route::get('/logout',  [AuthController::class, 'logout']);
 
     Route::get('/user',  function (Request $request) {

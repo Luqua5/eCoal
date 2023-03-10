@@ -63,21 +63,7 @@ export default function Home(props) {
         setSelectedLeague(leagues)
     }
 
-    async function logout() {
-
-        axios({
-            method: 'get',
-            url: 'http://localhost:8000/api/logout',
-            headers: {
-                'Authorization': 'Bearer ' + props.cookie.mycookie.token,
-                'Content-Type': 'application/json'
-            }
-        }).then((response) => {
-            console.log(response)
-        });
-        props.removeCookie("mycookie")
-
-    }
+    
 
 
     function SearchFilter() {

@@ -1,0 +1,12 @@
+.user{
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.user p {
+    font-size: 1.3rem;
+}
+
+.logout{
+    margin-top: 3rem;
+}

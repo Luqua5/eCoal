@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./AddArticle.css";
 import { Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -13,7 +14,9 @@ export default function AddArticle(props) {
     const [selectedLeague, setSelectedLeague] = useState([]);
     const [leagueId, setLeagueId] = useState(-1);
     const [searchValue, setSearchValue] = useState('');
+    const [lastArticleId, setLastArticleId] = useState(-1);
 
+    const navigate = useNavigate();
 
 
 
@@ -25,6 +28,7 @@ export default function AddArticle(props) {
     }
 
     useEffect(() => {
+
         try{
             axios({
                 method: "get",
@@ -39,6 +43,17 @@ export default function AddArticle(props) {
         } catch (error){
             console.log(error);
         }
+
+        try{
+            axios({
+                method: "get",
+                url: "http://localhost:8000/api/article"
+            }).then((response) => {
+                setLastArticleId(JSON.parse(response.data).length);
+            });
+        } catch (error){
+            console.log(error);
+        }
     }, []); 
     
     
@@ -49,7 +64,7 @@ export default function AddArticle(props) {
         
     }
 
-    function sendData(){
+    async function sendData(){
         try{
             var formData = new FormData();
             formData.append('thumbnailURL', document.getElementsByClassName('thumbnailURL')[0].files[0]);
@@ -57,12 +72,16 @@ export default function AddArticle(props) {
             formData.append('content', document.getElementsByClassName('content')[0].value);
             formData.append('league_id', leagueId);
 
-            axios.post('http://localhost:8000/api/article', formData, {
+            await axios.post('http://localhost:8000/api/article', formData, {
                 headers: {
+                    'Authorization': 'Bearer ' + props.cookie?.mycookie?.token,
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((response) => {
-                console.log(response);
+                if(response.status === 200){
+                    let lastid = lastArticleId+1
+                    navigate('/articleDetail/' + lastid);
+                }
             });
         } catch (error){
             console.log(error);
