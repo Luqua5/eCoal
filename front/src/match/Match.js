@@ -148,7 +148,7 @@ export default function Match() {
                 setSelectedData(beforeSeasonFiltered)
             } else {
                 console.log(n)
-                let newArray = selectedData.filter(x => x.league.name.includes(n));
+                let newArray = beforeSeasonFiltered.filter(x => x.league.name.includes(n));
                 console.log(newArray)
                 setSelectedData(newArray)
             }
