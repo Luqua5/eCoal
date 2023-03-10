@@ -30,7 +30,7 @@
 .show form{
     flex-direction: row;
 }
-/* .navBar{
+.navBar{
     max-height: 60vh;
     overflow-y: auto;
-  } */
+  }

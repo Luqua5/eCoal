@@ -31,7 +31,7 @@ export default function MatchDetail(props) {
 
     return (
         <>
-            {/* {console.log(props.goalsAway)} */}
+            {console.log(props.league)}
 
 
             <Row xs={1} md={2} className="g-4 cardArticle">
@@ -40,6 +40,7 @@ export default function MatchDetail(props) {
                         <Card >
                             {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                             <Card.Body>
+                                <h6>{props.league} : {props.season} </h6>
                                 <Card.Title><img className="logo" src={props.logoAway}></img>{props.away} : {props.goalsAway}</Card.Title>
                                 <Card.Title><img src={props.logoHome}></img>{props.home} : {props.goalsHome}</Card.Title>
 

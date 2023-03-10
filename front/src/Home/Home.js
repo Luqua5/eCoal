@@ -130,7 +130,7 @@ export default function Home(props) {
                                     </Button>
                                 </Form>
                                 <Nav.Link href="/">Home</Nav.Link>
-                                <Nav.Link href="/Login">Log In</Nav.Link>
+                                <Nav.Link href="/Match">Matches</Nav.Link>
                                 <Nav.Link href="/AboutUs">About Us</Nav.Link>
                                 <NavDropdown title="Leagues" id="basic-nav-dropdown" className="navBar">
                                     <Form className="d-flex">

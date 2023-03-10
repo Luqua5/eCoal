@@ -201,13 +201,14 @@ export default function Match() {
             <div className="match">
 
                 {selectedData.length ? selectedData.map(n => <MatchDetail
-
+                    league={n.league.name}
                     away={n.teams.away.name}
                     home={n.teams.home.name}
                     goalsHome={n.goals.home}
                     goalsAway={n.goals.away}
                     logoAway={n.teams.away.logo}
-                    logoHome={n.teams.home.logo} ></MatchDetail>) : <div>LOADING</div>}
+                    logoHome={n.teams.home.logo}
+                    season={n.league.season} ></MatchDetail>) : <div>LOADING</div>}
             </div>
             <Footer />
         </>
