@@ -10,9 +10,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-// import { Route, Link, Routes, useNavigate } from "react-router-dom";
+
 
 export default function ArticleDetail(props) {
     //make a get request to localhost:8000/test with axios
@@ -20,24 +18,34 @@ export default function ArticleDetail(props) {
     const [data, setData] = useState([]);
     const [tags, setTags] = useState([]);
 
-    // const queryParameters = new URLSearchParams(window.location.search)
-    // console.log(window.location.search)
-    // console.log (queryParameters.get("id"))
-    // let { id } = useParams();
     let params = useParams()
 
+
     useEffect(() => {
-        getData();
-        console.log(data)
-    }, []);
+        try{
+            axios({
+                method: "get",
+                url: "http://localhost:8000/api/article/" + params.id,
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }).then((response) => {
+                  if(response.status == 401){
+                      navigate("/Login")
+                    }
+                if(response.status == 200){
+                    setData(JSON.parse(response.data));
+                }
+              });
+        } catch (error){
+            
+            console.log(error);
+            navigate("/Login")
+        }
+    }, []); 
 
-    async function getData() {  // The function is asynchronous
-        const data = JSON.parse((await axios.get("http://localhost:8000/api/article/" + params.id)).data);
-        console.log(data)
-        setData(data)
-        // console.log(data)
 
-    }
+
 
     async function remove(){
         await axios.delete("http://localhost:8000/api/article/" + params.id)
@@ -52,7 +60,6 @@ export default function ArticleDetail(props) {
     }
     return (
         <>
-            {/* {console.log(data.content)} */}
             <Header />
 
 
@@ -62,7 +69,7 @@ export default function ArticleDetail(props) {
 
                 {data.length ? <div>
                     <div className="Title">{data[0].title}</div>
-                    <div><img className="articleIMG" src="/image/logo_txt.png" /></div>
+                    <div><img className="articleIMG" src={`http://localhost:8000/storage/upload/${data[0].thumbnailURL}`} /></div>
                     <div className="Date-art">03/03/2023 14:22</div>
                     <div className="content">{data[0].content}</div>
                     <div className="btn-container">

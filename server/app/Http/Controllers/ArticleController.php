@@ -38,7 +38,6 @@ class ArticleController extends Controller
         ]);
 
         
-        
         $f = $request->file('thumbnailURL')->hashName();
         
         $request->file('thumbnailURL')->storeAs('public/upload', $f);

@@ -20,6 +20,17 @@ import AboutUs from './components/AboutUs';
 import Match from './match/Match';
 import MatchDetail from './match/MatchDetail';
 
+
+import './fonts/Poppins-Black.ttf'
+import './fonts/Poppins-Bold.ttf'
+import './fonts/Poppins-ExtraBold.ttf'
+import './fonts/Poppins-ExtraLight.ttf'
+import './fonts/Poppins-Light.ttf'
+import './fonts/Poppins-Medium.ttf'
+import './fonts/Poppins-Regular.ttf'
+import './fonts/Poppins-SemiBold.ttf'
+import './fonts/Poppins-Thin.ttf'
+
 //import use cookie
 
 
@@ -37,10 +48,10 @@ function App() {
 
       <Routes>
         <Route exact={true} path="/" element={<Home cookie={cookies} removeCookie={removeCookie}/>} />
-        <Route exact={true} path="/ArticleDetail/:id" element={<ArticleDetail/>} />
+        <Route exact={true} path="/ArticleDetail/:id" element={<ArticleDetail cookie={cookies} />} />
         <Route exact={true} path="/Article" element={<Article/>} />
-        <Route exact={true} path="/AddArticle" element={<AddArticle/>} />
-        <Route exact={true} path="/EditArticle/:id" element={<EditArticle/>} />
+        <Route exact={true} path="/AddArticle" element={<AddArticle cookie={cookies}/>} />
+        <Route exact={true} path="/EditArticle/:id" element={<EditArticle cookie={cookies}/>} />
         <Route exact={true} path="/Login" element={<Login setCookie={setCookie}/>} />
         <Route exact={true} path="/Register" element={<Register setCookie={setCookie}/>} />
         <Route exact={true} path="/LiveFixture" element={<LiveFixture/>} />

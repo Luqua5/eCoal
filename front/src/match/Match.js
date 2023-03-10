@@ -74,6 +74,7 @@ export default function Match() {
     async function getFixture2022() {
         axios.request(options).then(function (response) {
             //   console.log(response.data);
+            response.data.response.sort((a, b) => a.league.season - b.league.season).reverse()
             setData(response.data.response)
             setSelectedData(response.data.response)
             // setLeague(response.data.league.name)
@@ -81,6 +82,7 @@ export default function Match() {
             leagues.unshift("All League")
             setLeague(leagues)
             const seasons = [...new Set(response.data.response.map(data => (data.league.season)))]; // Get unique genders from the data
+            seasons.unshift("All Season")
             // console.log(seasons)
             setSeason(seasons)
 
@@ -91,6 +93,7 @@ export default function Match() {
 
         axios.request(options2).then(function (response) {
             //   console.log(response.data);
+            response.data.response.sort((a, b) => a.league.season - b.league.season).reverse()
             setData(data.concat(response.data.response))
             setSelectedData(data.concat(response.data.response))
 
@@ -99,8 +102,7 @@ export default function Match() {
             leagues.unshift("All League") // Get unique genders from the data
             setLeague(league.concat(leagues))
             const seasons = [...new Set(response.data.response.map(data => (data.league.season)))]; // Get unique genders from the data
-            // console.log(season)
-            // console.log(seasons)
+            seasons.unshift("All Season")
             setSeason(season.concat(seasons))
 
         }).catch(function (error) {
@@ -153,10 +155,16 @@ export default function Match() {
 
     async function SearchMatchBySeason(n) {
         // let teamId = document.getElementById('searchLeague').value;
-        console.log(n)
-        let newArray = data.filter(x => x.league.season === n);
-        console.log(newArray)
-        setSelectedData(newArray)
+        if (n === "All Season") {
+            console.log("all season good")
+            console.log(data)
+            setSelectedData(data)
+        }else {
+            console.log(n)
+            let newArray = data.filter(x => x.league.season === n);
+            console.log(newArray)
+            setSelectedData(newArray)
+        }
 
 
         // setSelectedData(selectedData.filter(x => x.league_id === n));  
@@ -201,13 +209,14 @@ export default function Match() {
             <div className="match">
 
                 {selectedData.length ? selectedData.map(n => <MatchDetail
-
+                    league={n.league.name}
                     away={n.teams.away.name}
                     home={n.teams.home.name}
                     goalsHome={n.goals.home}
                     goalsAway={n.goals.away}
                     logoAway={n.teams.away.logo}
-                    logoHome={n.teams.home.logo} ></MatchDetail>) : <div>LOADING</div>}
+                    logoHome={n.teams.home.logo}
+                    season={n.league.season} ></MatchDetail>) : <div>LOADING</div>}
             </div>
             <Footer />
         </>
