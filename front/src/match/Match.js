@@ -31,6 +31,12 @@ export default function Match() {
     const [league, setLeague] = useState([...new Set]);
     const [season, setSeason] = useState([...new Set]);
     const [selectedData, setSelectedData] = useState([...new Set]);
+    const [seasonFiltered, setSeasonFiltered] = useState(false);
+    const [beforeSeasonFiltered, setBeforeSeasonFiltered] = useState([... new Set]);
+    const [beforeLeagueFiltered, setBeforeLeagueFiltered] = useState([... new Set]);
+
+    const [leagueFiltered, setLeagueFiltered] = useState(false);
+
 
     useEffect(() => {
         getFixture2022();
@@ -72,6 +78,7 @@ export default function Match() {
 
 
     async function getFixture2022() {
+
         axios.request(options).then(function (response) {
             //   console.log(response.data);
             response.data.response.sort((a, b) => a.league.season - b.league.season).reverse()
@@ -133,18 +140,33 @@ export default function Match() {
 
     async function SearchMatchByLeague(n) {
         // let teamId = document.getElementById('searchLeague').value;
-        if (n.includes("All League")) {
-            console.log("all league")
-            console.log(data)
-            setSelectedData(data)
+
+        if (seasonFiltered === true) {
+            if (n.includes("All League")) {
+                console.log("all league")
+                console.log(data)
+                setSelectedData(beforeSeasonFiltered)
+            } else {
+                console.log(n)
+                let newArray = selectedData.filter(x => x.league.name.includes(n));
+                console.log(newArray)
+                setSelectedData(newArray)
+            }
         } else {
-            console.log(n)
-            let newArray = data.filter(x => x.league.name.includes(n));
-            console.log(newArray)
-            setSelectedData(newArray)
+            if (n.includes("All League")) {
+                console.log("all league")
+                console.log(data)
+                setSelectedData(data)
+
+            } else {
+                console.log(n)
+                let newArray = data.filter(x => x.league.name.includes(n));
+                console.log(newArray)
+                setSelectedData(newArray)
+                setBeforeLeagueFiltered(newArray)
+            }
         }
-
-
+        setLeagueFiltered(true);
         // setSelectedData(selectedData.filter(x => x.league_id === n));  
 
         // console.log(newArray)
@@ -155,18 +177,35 @@ export default function Match() {
 
     async function SearchMatchBySeason(n) {
         // let teamId = document.getElementById('searchLeague').value;
-        if (n === "All Season") {
-            console.log("all season good")
-            console.log(data)
-            setSelectedData(data)
-        }else {
-            console.log(n)
-            let newArray = data.filter(x => x.league.season === n);
-            console.log(newArray)
-            setSelectedData(newArray)
+        if (leagueFiltered === true) {
+            if (n === "All Season") {
+                console.log("all season good")
+                console.log(data)
+                setSelectedData(data)
+            } else {
+                console.log(n)
+                let newArray = data.filter(x => x.league.season === n);
+                console.log(newArray)
+                setSelectedData(newArray)
+                setBeforeSeasonFiltered(newArray)
+            }
+
+        } else {
+
+            if (n === "All Season") {
+                console.log("all season good")
+                console.log(data)
+                setSelectedData(data)
+            } else {
+                console.log(n)
+                let newArray = data.filter(x => x.league.season === n);
+                console.log(newArray)
+                setSelectedData(newArray)
+                setBeforeSeasonFiltered(newArray)
+            }
         }
 
-
+        setSeasonFiltered(true)
         // setSelectedData(selectedData.filter(x => x.league_id === n));  
 
         // console.log(newArray)
@@ -216,7 +255,7 @@ export default function Match() {
                     goalsAway={n.goals.away}
                     logoAway={n.teams.away.logo}
                     logoHome={n.teams.home.logo}
-                    season={n.league.season} ></MatchDetail>) : <div>LOADING</div>}
+                    season={n.league.season} ></MatchDetail>) : <div>No Matches Found</div>}
             </div>
             <Footer />
         </>
