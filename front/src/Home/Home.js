@@ -107,7 +107,7 @@ export default function Home(props) {
             
 
             <div>
-                <Navbar  expand="lg" className="navBar">
+                <Navbar  expand="lg" className="navBar menu-home">
                     <Container>
                         <Link to="/">
                             <Navbar.Brand href="#home"><img className="logo-nav" src="/image/logo_txt.png" /></Navbar.Brand>

@@ -24,6 +24,9 @@
 }
   
 
+
+
+
 .show{
     width: 90vw;
 }
@@ -35,13 +38,16 @@
 .navBar{
     max-height: 60vh;
     overflow-y: auto;
-    position: fixed !important;
-    display: flex !important;
-    width: 100% !important;
-    z-index: 999 !important;
-    background-color: #fffcd5;
   }
 
   .lesArticles{
     padding-top: 110px;
+  }
+
+  .menu-home{
+    position: fixed !important;
+    top: 0;
+    width: 100% !important;
+    z-index: 99;
+    background-color: #fffcd5;
   }
