@@ -55,7 +55,7 @@ function App() {
         <Route exact={true} path="/Login" element={<Login setCookie={setCookie}/>} />
         <Route exact={true} path="/Register" element={<Register setCookie={setCookie}/>} />
         <Route exact={true} path="/LiveFixture" element={<LiveFixture/>} />
-        <Route exact={true} path="/User" element={<User cookie={cookies}/>} />
+        <Route exact={true} path="/User" element={<User cookie={cookies} removeCookie={removeCookie}/>} />
         <Route exact={true} path="/Ligue1" element={<Ligue1/>} />
         <Route exact={true} path="/ChampionsLeague" element={<ChampionsLeague/>} />
         <Route exact={true} path="/AboutUs" element={<AboutUs/>} />
