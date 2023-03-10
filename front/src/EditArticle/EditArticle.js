@@ -81,7 +81,7 @@ export default function EditArticle(props) {
     return (
         <>  
             <Header/>
-                        <h2 className="Title">Edit Article</h2>
+                        <h2 className="Title top-padding">Edit Article</h2>
 
                         <Form className="formAdd">
                                         <Form.Control

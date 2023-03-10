@@ -93,7 +93,7 @@ export default function AddArticle(props) {
         <>
         <Header/>
 
-        <h2 className="Title">Add an article</h2>
+        <h2 className="Title  top-padding">Add an article</h2>
                         <Form className="formAdd">
                                         <Form.Control
                                             type="text"

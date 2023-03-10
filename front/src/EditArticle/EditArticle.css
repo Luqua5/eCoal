@@ -5,6 +5,10 @@
     align-items: center;
     margin: 0 auto;
     justify-content: space-evenly;
+    
+}
+
+.top-padding{
     padding-top: 110px;
 }
 
